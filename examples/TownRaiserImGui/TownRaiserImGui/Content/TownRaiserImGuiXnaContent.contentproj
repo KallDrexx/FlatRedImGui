@@ -1,0 +1,1338 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{64B23BEF-DD26-4B81-AAA6-D9F46B0140B4}</ProjectGuid>
+    <ProjectTypeGuids>{96E2B04D-8817-42c6-938A-82C39BA4D311};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <XnaFrameworkVersion>v4.0</XnaFrameworkVersion>
+    <OutputPath>bin\$(Platform)\$(Configuration)</OutputPath>
+    <ContentRootDirectory>Content</ContentRootDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>FrbXna4Test1Content</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FlatRedBall.Content">
+      <HintPath>..\FlatRedBallXna4Template\Libraries\Xna4Pc\Debug\FlatRedBall.Content.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.EffectImporter, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.FBXImporter, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.TextureImporter, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.XImporter, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.AudioImporters, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.VideoImporters, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="2d misc\medieval-fantasy\hud\life-box-empty-2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>life-box-empty-2</Name>
+    </None>
+    <None Include="2d misc\medieval-fantasy\monsters\cyclops.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>cyclops</Name>
+    </None>
+    <None Include="2d misc\medieval-fantasy\monsters\dragon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>dragon</Name>
+    </None>
+    <None Include="2d misc\medieval-fantasy\monsters\king skeleton.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>king skeleton</Name>
+    </None>
+    <None Include="2d misc\medieval-fantasy\monsters\leonard.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>leonard</Name>
+    </None>
+    <None Include="2d misc\medieval-fantasy\monsters\skeleton.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>skeleton</Name>
+    </None>
+    <None Include="2d misc\medieval-fantasy\monsters\slime.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>slime</Name>
+    </None>
+    <None Include="2d misc\medieval-fantasy\monsters\snake.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>snake</Name>
+    </None>
+    <None Include="CharactersSheet.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>CharactersSheet</Name>
+    </None>
+    <None Include="Entities\Building\AnimationChainListFile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
+    </None>
+    <None Include="Entities\EncounterSpawnPoint\AnimationChainListFile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
+    </None>
+    <None Include="Entities\RoadManager\AnimationChainListFile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
+    </None>
+    <None Include="Entities\Unit\AnimationChainListFile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
+    </None>
+    <None Include="Entities\Unit\bat.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>bat</Name>
+    </None>
+    <None Include="Entities\Unit\goblin.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>goblin</Name>
+    </None>
+    <None Include="GlobalContent\BuildingData.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>BuildingData</Name>
+    </None>
+    <None Include="GlobalContent\CursorGraphics\AttackCursor.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AttackCursor</Name>
+    </None>
+    <None Include="GlobalContent\CursorGraphics\MoveCursor.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>MoveCursor</Name>
+    </None>
+    <None Include="GlobalContent\CursorGraphics\SelectCursor.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SelectCursor</Name>
+    </None>
+    <None Include="GlobalContent\CursorGraphics\TargetCursor.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>TargetCursor</Name>
+    </None>
+    <None Include="GlobalContent\EncounterPointData.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>EncounterPointData</Name>
+    </None>
+    <None Include="GlobalContent\GumAnimationChains.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>GumAnimationChains</Name>
+    </None>
+    <None Include="GlobalContent\TimedSpawnData.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>TimedSpawnData</Name>
+    </None>
+    <None Include="GlobalContent\UnitData.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>UnitData</Name>
+    </None>
+    <None Include="GumProject\Components\ActionStackContainer.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>ActionStackContainer</Name>
+    </None>
+    <None Include="GumProject\Components\ActionToolbar.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>ActionToolbar</Name>
+    </None>
+    <None Include="GumProject\Components\FontTest.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>FontTest</Name>
+    </None>
+    <None Include="GumProject\Components\FramedButton.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>FramedButton</Name>
+    </None>
+    <None Include="GumProject\components\graphics\minimapbackground.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>minimapbackground</Name>
+    </None>
+    <None Include="GumProject\Components\GroupSelector.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>GroupSelector</Name>
+    </None>
+    <None Include="GumProject\Components\HealthBar.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>HealthBar</Name>
+    </None>
+    <None Include="GumProject\Components\IconButton.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>IconButton</Name>
+    </None>
+    <None Include="GumProject\Components\MenuTitleDisplay.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>MenuTitleDisplay</Name>
+    </None>
+    <None Include="GumProject\Components\MinimapContents.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>MinimapContents</Name>
+    </None>
+    <None Include="GumProject\Components\Resource.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Resource</Name>
+    </None>
+    <None Include="GumProject\Components\ResourceCostContainer.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>ResourceCostContainer</Name>
+    </None>
+    <None Include="GumProject\Components\ResourceCostDisplay.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>ResourceCostDisplay</Name>
+    </None>
+    <None Include="GumProject\Components\ResourceDisplay.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>ResourceDisplay</Name>
+    </None>
+    <None Include="GumProject\Components\SelectedButtonDisplay.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SelectedButtonDisplay</Name>
+    </None>
+    <None Include="GumProject\Components\TrainingUnitSprite.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>TrainingUnitSprite</Name>
+    </None>
+    <None Include="GumProject\Components\XButton.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>XButton</Name>
+    </None>
+    <None Include="GumProject\FontCache\font-1.fnt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>font-1</Name>
+    </None>
+    <None Include="GumProject\FontCache\font-1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>font-1</Name>
+    </None>
+    <None Include="GumProject\FontCache\font-2.fnt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>font-2</Name>
+    </None>
+    <None Include="GumProject\FontCache\font-2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>font-2</Name>
+    </None>
+    <None Include="GumProject\FontCache\Font18Arial.fnt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font18Arial</Name>
+    </None>
+    <None Include="GumProject\FontCache\Font18Arial_0.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font18Arial_0</Name>
+    </None>
+    <None Include="GumProject\GumProject.gumx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>GumProject</Name>
+    </None>
+    <None Include="GumProject\Screens\GameScreenGum.gusx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>GameScreenGum</Name>
+    </None>
+    <None Include="GumProject\Screens\MainMenuGum.gusx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>MainMenuGum</Name>
+    </None>
+    <None Include="GumProject\Screens\TestScreenGum.gusx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>TestScreenGum</Name>
+    </None>
+    <None Include="GumProject\Standards\Circle.gutx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Circle</Name>
+    </None>
+    <None Include="GumProject\Standards\ColoredRectangle.gutx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>ColoredRectangle</Name>
+    </None>
+    <None Include="GumProject\Standards\Component.gutx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Component</Name>
+    </None>
+    <None Include="GumProject\Standards\Container.gutx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Container</Name>
+    </None>
+    <None Include="GumProject\Standards\NineSlice.gutx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>NineSlice</Name>
+    </None>
+    <None Include="GumProject\Standards\Rectangle.gutx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Rectangle</Name>
+    </None>
+    <None Include="GumProject\Standards\Sprite.gutx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Sprite</Name>
+    </None>
+    <None Include="GumProject\Standards\StandardGraphics\Red_bottomCenter.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Red_bottomCenter</Name>
+    </None>
+    <None Include="GumProject\Standards\StandardGraphics\Red_bottomLeft.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Red_bottomLeft</Name>
+    </None>
+    <None Include="GumProject\Standards\StandardGraphics\Red_bottomRight.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Red_bottomRight</Name>
+    </None>
+    <None Include="GumProject\Standards\StandardGraphics\Red_center.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Red_center</Name>
+    </None>
+    <None Include="GumProject\Standards\StandardGraphics\Red_left.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Red_left</Name>
+    </None>
+    <None Include="GumProject\Standards\StandardGraphics\Red_right.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Red_right</Name>
+    </None>
+    <None Include="GumProject\Standards\StandardGraphics\Red_topCenter.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Red_topCenter</Name>
+    </None>
+    <None Include="GumProject\Standards\StandardGraphics\Red_topLeft.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Red_topLeft</Name>
+    </None>
+    <None Include="GumProject\Standards\StandardGraphics\Red_topRight.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Red_topRight</Name>
+    </None>
+    <None Include="GumProject\Standards\Text.gutx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Text</Name>
+    </None>
+    <None Include="MainTileset.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>MainTileset</Name>
+    </None>
+    <None Include="Screens\GameScreen\WorldMap.tmx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>WorldMap</Name>
+    </None>
+    <None Include="weapon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>weapon</Name>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\Building\Sfx\building_constuction_complete_barracks_1.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>building_constuction_complete_barracks_1</Name>
+    </Compile>
+    <Compile Include="Entities\Building\Sfx\building_constuction_complete_generic_1.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>building_constuction_complete_generic_1</Name>
+    </Compile>
+    <Compile Include="Entities\Building\Sfx\building_constuction_complete_house_1.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>building_constuction_complete_house_1</Name>
+    </Compile>
+    <Compile Include="Entities\Building\Sfx\building_constuction_complete_tent_1.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>building_constuction_complete_tent_1</Name>
+    </Compile>
+    <Compile Include="Entities\Building\Sfx\building_constuction_complete_townhall_1.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>building_constuction_complete_townhall_1</Name>
+    </Compile>
+    <Compile Include="Entities\Building\Sfx\building_constuction_start_generic_1.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>building_constuction_start_generic_1</Name>
+    </Compile>
+    <Compile Include="Entities\Building\Sfx\combat_building_damage_1.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_building_damage_1</Name>
+    </Compile>
+    <Compile Include="Entities\Building\Sfx\combat_building_damage_10.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_building_damage_10</Name>
+    </Compile>
+    <Compile Include="Entities\Building\Sfx\combat_building_damage_11.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_building_damage_11</Name>
+    </Compile>
+    <Compile Include="Entities\Building\Sfx\combat_building_damage_12.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_building_damage_12</Name>
+    </Compile>
+    <Compile Include="Entities\Building\Sfx\combat_building_damage_2.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_building_damage_2</Name>
+    </Compile>
+    <Compile Include="Entities\Building\Sfx\combat_building_damage_3.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_building_damage_3</Name>
+    </Compile>
+    <Compile Include="Entities\Building\Sfx\combat_building_damage_4.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_building_damage_4</Name>
+    </Compile>
+    <Compile Include="Entities\Building\Sfx\combat_building_damage_5.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_building_damage_5</Name>
+    </Compile>
+    <Compile Include="Entities\Building\Sfx\combat_building_damage_6.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_building_damage_6</Name>
+    </Compile>
+    <Compile Include="Entities\Building\Sfx\combat_building_damage_7.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_building_damage_7</Name>
+    </Compile>
+    <Compile Include="Entities\Building\Sfx\combat_building_damage_8.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_building_damage_8</Name>
+    </Compile>
+    <Compile Include="Entities\Building\Sfx\combat_building_damage_9.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_building_damage_9</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Bat\unit_attack_bat_1.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_attack_bat_1</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Bat\unit_attack_bat_2.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_attack_bat_2</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Bat\unit_attack_bat_3.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_attack_bat_3</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Bat\unit_death_bat_1.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_death_bat_1</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Bat\unit_death_bat_2.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_death_bat_2</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Bat\unit_death_bat_3.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_death_bat_3</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\CharacterAction\unit_chop_wood_1.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_chop_wood_1</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\CharacterAction\unit_chop_wood_2.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_chop_wood_2</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\CharacterAction\unit_mine_gold_1.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_mine_gold_1</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\CharacterAction\unit_mine_gold_2.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_mine_gold_2</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\CharacterAction\unit_mine_stone_1.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_mine_stone_1</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\CharacterAction\unit_mine_stone_2.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_mine_stone_2</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Cyclops\unit_attack_cyclops_1.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_attack_cyclops_1</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Cyclops\unit_attack_cyclops_2.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_attack_cyclops_2</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Cyclops\unit_attack_cyclops_3.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_attack_cyclops_3</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Cyclops\unit_death_cyclops_1.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_death_cyclops_1</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Cyclops\unit_death_cyclops_2.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_death_cyclops_2</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Cyclops\unit_death_cyclops_3.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_death_cyclops_3</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Dragon\unit_attack_dragon_1.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_attack_dragon_1</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Dragon\unit_attack_dragon_2.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_attack_dragon_2</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Dragon\unit_attack_dragon_3.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_attack_dragon_3</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Dragon\unit_death_dragon_1.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_death_dragon_1</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Dragon\unit_death_dragon_2.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_death_dragon_2</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Dragon\unit_death_dragon_3.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_death_dragon_3</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_attack_fighter_1.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_attack_fighter_1</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_attack_fighter_10.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_attack_fighter_10</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_attack_fighter_11.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_attack_fighter_11</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_attack_fighter_12.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_attack_fighter_12</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_attack_fighter_2.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_attack_fighter_2</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_attack_fighter_3.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_attack_fighter_3</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_attack_fighter_4.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_attack_fighter_4</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_attack_fighter_5.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_attack_fighter_5</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_attack_fighter_6.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_attack_fighter_6</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_attack_fighter_7.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_attack_fighter_7</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_attack_fighter_8.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_attack_fighter_8</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_attack_fighter_9.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_attack_fighter_9</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_death_fighter_1.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_death_fighter_1</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_death_fighter_2.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_death_fighter_2</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_death_fighter_3.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_death_fighter_3</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_obey_fighter_1.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_obey_fighter_1</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_obey_fighter_10.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_obey_fighter_10</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_obey_fighter_11.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_obey_fighter_11</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_obey_fighter_12.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_obey_fighter_12</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_obey_fighter_13.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_obey_fighter_13</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_obey_fighter_14.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_obey_fighter_14</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_obey_fighter_15.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_obey_fighter_15</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_obey_fighter_16.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_obey_fighter_16</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_obey_fighter_17.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_obey_fighter_17</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_obey_fighter_2.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_obey_fighter_2</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_obey_fighter_3.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_obey_fighter_3</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_obey_fighter_4.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_obey_fighter_4</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_obey_fighter_5.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_obey_fighter_5</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_obey_fighter_6.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_obey_fighter_6</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_obey_fighter_7.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_obey_fighter_7</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_obey_fighter_8.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_obey_fighter_8</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_obey_fighter_9.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_obey_fighter_9</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_select_fighter_1.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_select_fighter_1</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_select_fighter_10.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_select_fighter_10</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_select_fighter_11.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_select_fighter_11</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_select_fighter_12.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_select_fighter_12</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_select_fighter_13.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_select_fighter_13</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_select_fighter_14.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_select_fighter_14</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_select_fighter_15.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_select_fighter_15</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_select_fighter_16.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_select_fighter_16</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_select_fighter_2.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_select_fighter_2</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_select_fighter_3.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_select_fighter_3</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_select_fighter_4.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_select_fighter_4</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_select_fighter_5.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_select_fighter_5</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_select_fighter_6.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_select_fighter_6</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_select_fighter_7.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_select_fighter_7</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_select_fighter_8.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_select_fighter_8</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_select_fighter_9.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_select_fighter_9</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_spawn_figher_4.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_spawn_figher_4</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_spawn_fighter_1.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_spawn_fighter_1</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_spawn_fighter_10.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_spawn_fighter_10</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_spawn_fighter_11.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_spawn_fighter_11</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_spawn_fighter_12.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_spawn_fighter_12</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_spawn_fighter_13.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_spawn_fighter_13</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_spawn_fighter_2.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_spawn_fighter_2</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_spawn_fighter_3.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_spawn_fighter_3</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_spawn_fighter_5.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_spawn_fighter_5</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_spawn_fighter_6.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_spawn_fighter_6</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_spawn_fighter_7.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_spawn_fighter_7</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_spawn_fighter_8.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_spawn_fighter_8</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Fighter\unit_spawn_fighter_9.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_spawn_fighter_9</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Goblin\unit_attack_goblin_1.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_attack_goblin_1</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Goblin\unit_attack_goblin_2.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_attack_goblin_2</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Goblin\unit_attack_goblin_3.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_attack_goblin_3</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Goblin\unit_death_goblin_1.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_death_goblin_1</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Goblin\unit_death_goblin_2.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_death_goblin_2</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Goblin\unit_death_goblin_3.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_death_goblin_3</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Skeleton\unit_attack_skeleton_1.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_attack_skeleton_1</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Skeleton\unit_attack_skeleton_2.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_attack_skeleton_2</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Skeleton\unit_attack_skeleton_3.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_attack_skeleton_3</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Skeleton\unit_death_skeleton_1.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_death_skeleton_1</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Skeleton\unit_death_skeleton_2.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_death_skeleton_2</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Skeleton\unit_death_skeleton_3.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_death_skeleton_3</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Slime\unit_attack_slime_1.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_attack_slime_1</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Slime\unit_attack_slime_2.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_attack_slime_2</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Slime\unit_attack_slime_3.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_attack_slime_3</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Slime\unit_death_slime_1.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_death_slime_1</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Slime\unit_death_slime_2.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_death_slime_2</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Slime\unit_death_slime_3.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_death_slime_3</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Snake\unit_attack_snake_1.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_attack_snake_1</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Snake\unit_attack_snake_2.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_attack_snake_2</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Snake\unit_attack_snake_3.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_attack_snake_3</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Snake\unit_death_snake_1.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_death_snake_1</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Snake\unit_death_snake_2.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_death_snake_2</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Snake\unit_death_snake_3.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_death_snake_3</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Weapons\combat_attack_club_1.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_attack_club_1</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Weapons\combat_attack_club_10.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_attack_club_10</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Weapons\combat_attack_club_11.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_attack_club_11</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Weapons\combat_attack_club_12.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_attack_club_12</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Weapons\combat_attack_club_2.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_attack_club_2</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Weapons\combat_attack_club_3.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_attack_club_3</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Weapons\combat_attack_club_4.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_attack_club_4</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Weapons\combat_attack_club_5.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_attack_club_5</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Weapons\combat_attack_club_6.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_attack_club_6</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Weapons\combat_attack_club_7.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_attack_club_7</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Weapons\combat_attack_club_8.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_attack_club_8</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Weapons\combat_attack_club_9.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_attack_club_9</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Weapons\combat_attack_magic_1.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_attack_magic_1</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Weapons\combat_attack_magic_10.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_attack_magic_10</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Weapons\combat_attack_magic_11.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_attack_magic_11</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Weapons\combat_attack_magic_12.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_attack_magic_12</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Weapons\combat_attack_magic_2.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_attack_magic_2</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Weapons\combat_attack_magic_3.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_attack_magic_3</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Weapons\combat_attack_magic_4.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_attack_magic_4</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Weapons\combat_attack_magic_5.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_attack_magic_5</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Weapons\combat_attack_magic_6.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_attack_magic_6</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Weapons\combat_attack_magic_7.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_attack_magic_7</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Weapons\combat_attack_magic_8.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_attack_magic_8</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Weapons\combat_attack_magic_9.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_attack_magic_9</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Weapons\combat_attack_sword_1.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_attack_sword_1</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Weapons\combat_attack_sword_10.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_attack_sword_10</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Weapons\combat_attack_sword_11.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_attack_sword_11</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Weapons\combat_attack_sword_12.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_attack_sword_12</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Weapons\combat_attack_sword_2.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_attack_sword_2</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Weapons\combat_attack_sword_3.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_attack_sword_3</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Weapons\combat_attack_sword_4.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_attack_sword_4</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Weapons\combat_attack_sword_5.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_attack_sword_5</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Weapons\combat_attack_sword_6.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_attack_sword_6</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Weapons\combat_attack_sword_7.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_attack_sword_7</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Weapons\combat_attack_sword_8.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_attack_sword_8</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Weapons\combat_attack_sword_9.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>combat_attack_sword_9</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Worker\unit_attack_worker_1.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_attack_worker_1</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Worker\unit_attack_worker_2.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_attack_worker_2</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Worker\unit_attack_worker_3.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_attack_worker_3</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Worker\unit_death_worker_1.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_death_worker_1</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Worker\unit_death_worker_2.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_death_worker_2</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Worker\unit_death_worker_3.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_death_worker_3</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Worker\unit_obey_worker_1.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_obey_worker_1</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Worker\unit_obey_worker_2.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_obey_worker_2</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Worker\unit_obey_worker_3.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_obey_worker_3</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Worker\unit_obey_worker_4.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_obey_worker_4</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Worker\unit_obey_worker_5.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_obey_worker_5</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Worker\unit_obey_worker_6.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_obey_worker_6</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Worker\unit_obey_worker_7.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_obey_worker_7</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Worker\unit_obey_worker_8.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_obey_worker_8</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Worker\unit_obey_worker_9.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_obey_worker_9</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Worker\unit_select_worker_1.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_select_worker_1</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Worker\unit_select_worker_2.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_select_worker_2</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Worker\unit_select_worker_3.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_select_worker_3</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Worker\unit_select_worker_4.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_select_worker_4</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Worker\unit_select_worker_5.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_select_worker_5</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Worker\unit_select_worker_6.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_select_worker_6</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Worker\unit_select_worker_7.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_select_worker_7</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Worker\unit_select_worker_8.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_select_worker_8</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Worker\unit_select_worker_9.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_select_worker_9</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Worker\unit_spawn_worker_1.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_spawn_worker_1</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Worker\unit_spawn_worker_2.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_spawn_worker_2</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Worker\unit_spawn_worker_3.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_spawn_worker_3</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Worker\unit_spawn_worker_4.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_spawn_worker_4</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Worker\unit_spawn_worker_5.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_spawn_worker_5</Name>
+    </Compile>
+    <Compile Include="Entities\Unit\Sfx\Worker\unit_spawn_worker_6.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>unit_spawn_worker_6</Name>
+    </Compile>
+    <Compile Include="Screens\GameScreen\FR_BattleSong_Loop.mp3">
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Name>FR_BattleSong_Loop</Name>
+    </Compile>
+    <Compile Include="Screens\GameScreen\FR_TownSong_Loop.mp3">
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Name>FR_TownSong_Loop</Name>
+    </Compile>
+    <Compile Include="Screens\GameScreen\FR_VictorySong.mp3">
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Name>FR_VictorySong</Name>
+    </Compile>
+    <Compile Include="Screens\GameScreen\Sfx\ui_collect_gold_1.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>ui_collect_gold_1</Name>
+    </Compile>
+    <Compile Include="Screens\GameScreen\Sfx\ui_collect_lumber_1.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>ui_collect_lumber_1</Name>
+    </Compile>
+    <Compile Include="Screens\GameScreen\Sfx\ui_collect_stone_1.wav">
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Name>ui_collect_stone_1</Name>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
+  <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

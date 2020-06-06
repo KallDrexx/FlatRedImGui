@@ -1,0 +1,22 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TownRaiserImGui", "TownRaiserImGui\TownRaiserImGui.csproj", "{CC7AA7BE-66F9-4204-9D11-DD421E3124DE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CC7AA7BE-66F9-4204-9D11-DD421E3124DE}.Debug|x86.ActiveCfg = Debug|x86
+		{CC7AA7BE-66F9-4204-9D11-DD421E3124DE}.Debug|x86.Build.0 = Debug|x86
+		{CC7AA7BE-66F9-4204-9D11-DD421E3124DE}.Release|x86.ActiveCfg = Release|x86
+		{CC7AA7BE-66F9-4204-9D11-DD421E3124DE}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

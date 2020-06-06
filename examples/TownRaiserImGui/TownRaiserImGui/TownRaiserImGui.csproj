@@ -1,0 +1,1692 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CC7AA7BE-66F9-4204-9D11-DD421E3124DE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TownRaiserImGui</RootNamespace>
+    <AssemblyName>TownRaiserImGui</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MonoGamePlatform>DesktopGL</MonoGamePlatform>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\$(MonoGamePlatform)\$(Platform)\$(Configuration)\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;MONOGAME; DESKTOP_GL; XNA4; FRB_XNA</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\$(MonoGamePlatform)\$(Platform)\$(Configuration)\</OutputPath>
+    <DefineConstants>TRACE;MONOGAME; DESKTOP_GL; XNA4; FRB_XNA</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;MONOGAME; DESKTOP_GL; XNA4; FRB_XNA</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;MONOGAME; DESKTOP_GL; XNA4; FRB_XNA</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FlatRedBall.Forms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\DesktopGl\Debug\FlatRedBall.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="GumCoreXnaPc, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\DesktopGl\Debug\GumCoreXnaPc.dll</HintPath>
+    </Reference>
+    <Reference Include="ImGui.NET, Version=1.75.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\ImGui.NET.1.75.0\lib\netstandard2.0\ImGui.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoGame.Framework, Version=3.8.0.1375, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\MonoGame.Framework.DesktopGL.3.8.0.1375-develop\lib\net452\MonoGame.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="NVorbis, Version=0.8.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\DesktopGl\Debug\NVorbis.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\DesktopGl\Debug\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="StateInterpolation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\DesktopGl\Debug\StateInterpolation.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Runtime.CompilerServices.Unsafe.4.4.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\builtxnbs\desktopgl\entities\building\sfx\building_constuction_complete_barracks_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>building_constuction_complete_barracks_1</Name>
+      <Link>content\entities\building\sfx\building_constuction_complete_barracks_1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\building\sfx\building_constuction_complete_generic_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>building_constuction_complete_generic_1</Name>
+      <Link>content\entities\building\sfx\building_constuction_complete_generic_1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\building\sfx\building_constuction_complete_house_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>building_constuction_complete_house_1</Name>
+      <Link>content\entities\building\sfx\building_constuction_complete_house_1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\building\sfx\building_constuction_complete_tent_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>building_constuction_complete_tent_1</Name>
+      <Link>content\entities\building\sfx\building_constuction_complete_tent_1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\building\sfx\building_constuction_complete_townhall_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>building_constuction_complete_townhall_1</Name>
+      <Link>content\entities\building\sfx\building_constuction_complete_townhall_1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\building\sfx\building_constuction_start_generic_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>building_constuction_start_generic_1</Name>
+      <Link>content\entities\building\sfx\building_constuction_start_generic_1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\building\sfx\combat_building_damage_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_building_damage_1</Name>
+      <Link>content\entities\building\sfx\combat_building_damage_1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\building\sfx\combat_building_damage_10.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_building_damage_10</Name>
+      <Link>content\entities\building\sfx\combat_building_damage_10.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\building\sfx\combat_building_damage_11.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_building_damage_11</Name>
+      <Link>content\entities\building\sfx\combat_building_damage_11.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\building\sfx\combat_building_damage_12.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_building_damage_12</Name>
+      <Link>content\entities\building\sfx\combat_building_damage_12.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\building\sfx\combat_building_damage_2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_building_damage_2</Name>
+      <Link>content\entities\building\sfx\combat_building_damage_2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\building\sfx\combat_building_damage_3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_building_damage_3</Name>
+      <Link>content\entities\building\sfx\combat_building_damage_3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\building\sfx\combat_building_damage_4.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_building_damage_4</Name>
+      <Link>content\entities\building\sfx\combat_building_damage_4.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\building\sfx\combat_building_damage_5.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_building_damage_5</Name>
+      <Link>content\entities\building\sfx\combat_building_damage_5.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\building\sfx\combat_building_damage_6.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_building_damage_6</Name>
+      <Link>content\entities\building\sfx\combat_building_damage_6.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\building\sfx\combat_building_damage_7.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_building_damage_7</Name>
+      <Link>content\entities\building\sfx\combat_building_damage_7.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\building\sfx\combat_building_damage_8.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_building_damage_8</Name>
+      <Link>content\entities\building\sfx\combat_building_damage_8.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\building\sfx\combat_building_damage_9.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_building_damage_9</Name>
+      <Link>content\entities\building\sfx\combat_building_damage_9.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\bat\unit_attack_bat_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_attack_bat_1</Name>
+      <Link>content\entities\unit\sfx\bat\unit_attack_bat_1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\bat\unit_attack_bat_2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_attack_bat_2</Name>
+      <Link>content\entities\unit\sfx\bat\unit_attack_bat_2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\bat\unit_attack_bat_3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_attack_bat_3</Name>
+      <Link>content\entities\unit\sfx\bat\unit_attack_bat_3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\bat\unit_death_bat_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_death_bat_1</Name>
+      <Link>content\entities\unit\sfx\bat\unit_death_bat_1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\bat\unit_death_bat_2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_death_bat_2</Name>
+      <Link>content\entities\unit\sfx\bat\unit_death_bat_2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\bat\unit_death_bat_3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_death_bat_3</Name>
+      <Link>content\entities\unit\sfx\bat\unit_death_bat_3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\characteraction\unit_chop_wood_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_chop_wood_1</Name>
+      <Link>content\entities\unit\sfx\characteraction\unit_chop_wood_1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\characteraction\unit_chop_wood_2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_chop_wood_2</Name>
+      <Link>content\entities\unit\sfx\characteraction\unit_chop_wood_2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\characteraction\unit_mine_gold_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_mine_gold_1</Name>
+      <Link>content\entities\unit\sfx\characteraction\unit_mine_gold_1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\characteraction\unit_mine_gold_2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_mine_gold_2</Name>
+      <Link>content\entities\unit\sfx\characteraction\unit_mine_gold_2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\characteraction\unit_mine_stone_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_mine_stone_1</Name>
+      <Link>content\entities\unit\sfx\characteraction\unit_mine_stone_1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\characteraction\unit_mine_stone_2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_mine_stone_2</Name>
+      <Link>content\entities\unit\sfx\characteraction\unit_mine_stone_2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\cyclops\unit_attack_cyclops_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_attack_cyclops_1</Name>
+      <Link>content\entities\unit\sfx\cyclops\unit_attack_cyclops_1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\cyclops\unit_attack_cyclops_2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_attack_cyclops_2</Name>
+      <Link>content\entities\unit\sfx\cyclops\unit_attack_cyclops_2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\cyclops\unit_attack_cyclops_3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_attack_cyclops_3</Name>
+      <Link>content\entities\unit\sfx\cyclops\unit_attack_cyclops_3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\cyclops\unit_death_cyclops_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_death_cyclops_1</Name>
+      <Link>content\entities\unit\sfx\cyclops\unit_death_cyclops_1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\cyclops\unit_death_cyclops_2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_death_cyclops_2</Name>
+      <Link>content\entities\unit\sfx\cyclops\unit_death_cyclops_2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\cyclops\unit_death_cyclops_3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_death_cyclops_3</Name>
+      <Link>content\entities\unit\sfx\cyclops\unit_death_cyclops_3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\dragon\unit_attack_dragon_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_attack_dragon_1</Name>
+      <Link>content\entities\unit\sfx\dragon\unit_attack_dragon_1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\dragon\unit_attack_dragon_2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_attack_dragon_2</Name>
+      <Link>content\entities\unit\sfx\dragon\unit_attack_dragon_2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\dragon\unit_attack_dragon_3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_attack_dragon_3</Name>
+      <Link>content\entities\unit\sfx\dragon\unit_attack_dragon_3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\dragon\unit_death_dragon_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_death_dragon_1</Name>
+      <Link>content\entities\unit\sfx\dragon\unit_death_dragon_1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\dragon\unit_death_dragon_2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_death_dragon_2</Name>
+      <Link>content\entities\unit\sfx\dragon\unit_death_dragon_2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\dragon\unit_death_dragon_3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_death_dragon_3</Name>
+      <Link>content\entities\unit\sfx\dragon\unit_death_dragon_3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_attack_fighter_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_attack_fighter_1</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_attack_fighter_1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_attack_fighter_10.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_attack_fighter_10</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_attack_fighter_10.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_attack_fighter_11.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_attack_fighter_11</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_attack_fighter_11.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_attack_fighter_12.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_attack_fighter_12</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_attack_fighter_12.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_attack_fighter_2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_attack_fighter_2</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_attack_fighter_2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_attack_fighter_3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_attack_fighter_3</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_attack_fighter_3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_attack_fighter_4.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_attack_fighter_4</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_attack_fighter_4.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_attack_fighter_5.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_attack_fighter_5</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_attack_fighter_5.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_attack_fighter_6.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_attack_fighter_6</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_attack_fighter_6.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_attack_fighter_7.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_attack_fighter_7</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_attack_fighter_7.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_attack_fighter_8.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_attack_fighter_8</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_attack_fighter_8.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_attack_fighter_9.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_attack_fighter_9</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_attack_fighter_9.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_death_fighter_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_death_fighter_1</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_death_fighter_1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_death_fighter_2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_death_fighter_2</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_death_fighter_2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_death_fighter_3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_death_fighter_3</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_death_fighter_3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_obey_fighter_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_obey_fighter_1</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_obey_fighter_1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_obey_fighter_10.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_obey_fighter_10</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_obey_fighter_10.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_obey_fighter_11.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_obey_fighter_11</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_obey_fighter_11.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_obey_fighter_12.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_obey_fighter_12</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_obey_fighter_12.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_obey_fighter_13.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_obey_fighter_13</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_obey_fighter_13.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_obey_fighter_14.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_obey_fighter_14</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_obey_fighter_14.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_obey_fighter_15.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_obey_fighter_15</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_obey_fighter_15.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_obey_fighter_16.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_obey_fighter_16</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_obey_fighter_16.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_obey_fighter_17.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_obey_fighter_17</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_obey_fighter_17.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_obey_fighter_2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_obey_fighter_2</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_obey_fighter_2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_obey_fighter_3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_obey_fighter_3</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_obey_fighter_3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_obey_fighter_4.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_obey_fighter_4</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_obey_fighter_4.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_obey_fighter_5.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_obey_fighter_5</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_obey_fighter_5.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_obey_fighter_6.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_obey_fighter_6</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_obey_fighter_6.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_obey_fighter_7.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_obey_fighter_7</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_obey_fighter_7.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_obey_fighter_8.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_obey_fighter_8</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_obey_fighter_8.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_obey_fighter_9.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_obey_fighter_9</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_obey_fighter_9.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_select_fighter_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_select_fighter_1</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_select_fighter_1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_select_fighter_10.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_select_fighter_10</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_select_fighter_10.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_select_fighter_11.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_select_fighter_11</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_select_fighter_11.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_select_fighter_12.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_select_fighter_12</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_select_fighter_12.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_select_fighter_13.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_select_fighter_13</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_select_fighter_13.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_select_fighter_14.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_select_fighter_14</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_select_fighter_14.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_select_fighter_15.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_select_fighter_15</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_select_fighter_15.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_select_fighter_16.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_select_fighter_16</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_select_fighter_16.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_select_fighter_2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_select_fighter_2</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_select_fighter_2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_select_fighter_3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_select_fighter_3</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_select_fighter_3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_select_fighter_4.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_select_fighter_4</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_select_fighter_4.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_select_fighter_5.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_select_fighter_5</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_select_fighter_5.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_select_fighter_6.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_select_fighter_6</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_select_fighter_6.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_select_fighter_7.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_select_fighter_7</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_select_fighter_7.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_select_fighter_8.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_select_fighter_8</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_select_fighter_8.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_select_fighter_9.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_select_fighter_9</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_select_fighter_9.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_spawn_figher_4.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_spawn_figher_4</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_spawn_figher_4.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_spawn_fighter_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_spawn_fighter_1</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_spawn_fighter_1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_spawn_fighter_10.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_spawn_fighter_10</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_spawn_fighter_10.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_spawn_fighter_11.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_spawn_fighter_11</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_spawn_fighter_11.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_spawn_fighter_12.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_spawn_fighter_12</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_spawn_fighter_12.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_spawn_fighter_13.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_spawn_fighter_13</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_spawn_fighter_13.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_spawn_fighter_2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_spawn_fighter_2</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_spawn_fighter_2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_spawn_fighter_3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_spawn_fighter_3</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_spawn_fighter_3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_spawn_fighter_5.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_spawn_fighter_5</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_spawn_fighter_5.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_spawn_fighter_6.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_spawn_fighter_6</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_spawn_fighter_6.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_spawn_fighter_7.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_spawn_fighter_7</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_spawn_fighter_7.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_spawn_fighter_8.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_spawn_fighter_8</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_spawn_fighter_8.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\fighter\unit_spawn_fighter_9.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_spawn_fighter_9</Name>
+      <Link>content\entities\unit\sfx\fighter\unit_spawn_fighter_9.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\goblin\unit_attack_goblin_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_attack_goblin_1</Name>
+      <Link>content\entities\unit\sfx\goblin\unit_attack_goblin_1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\goblin\unit_attack_goblin_2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_attack_goblin_2</Name>
+      <Link>content\entities\unit\sfx\goblin\unit_attack_goblin_2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\goblin\unit_attack_goblin_3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_attack_goblin_3</Name>
+      <Link>content\entities\unit\sfx\goblin\unit_attack_goblin_3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\goblin\unit_death_goblin_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_death_goblin_1</Name>
+      <Link>content\entities\unit\sfx\goblin\unit_death_goblin_1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\goblin\unit_death_goblin_2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_death_goblin_2</Name>
+      <Link>content\entities\unit\sfx\goblin\unit_death_goblin_2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\goblin\unit_death_goblin_3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_death_goblin_3</Name>
+      <Link>content\entities\unit\sfx\goblin\unit_death_goblin_3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\skeleton\unit_attack_skeleton_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_attack_skeleton_1</Name>
+      <Link>content\entities\unit\sfx\skeleton\unit_attack_skeleton_1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\skeleton\unit_attack_skeleton_2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_attack_skeleton_2</Name>
+      <Link>content\entities\unit\sfx\skeleton\unit_attack_skeleton_2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\skeleton\unit_attack_skeleton_3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_attack_skeleton_3</Name>
+      <Link>content\entities\unit\sfx\skeleton\unit_attack_skeleton_3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\skeleton\unit_death_skeleton_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_death_skeleton_1</Name>
+      <Link>content\entities\unit\sfx\skeleton\unit_death_skeleton_1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\skeleton\unit_death_skeleton_2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_death_skeleton_2</Name>
+      <Link>content\entities\unit\sfx\skeleton\unit_death_skeleton_2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\skeleton\unit_death_skeleton_3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_death_skeleton_3</Name>
+      <Link>content\entities\unit\sfx\skeleton\unit_death_skeleton_3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\slime\unit_attack_slime_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_attack_slime_1</Name>
+      <Link>content\entities\unit\sfx\slime\unit_attack_slime_1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\slime\unit_attack_slime_2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_attack_slime_2</Name>
+      <Link>content\entities\unit\sfx\slime\unit_attack_slime_2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\slime\unit_attack_slime_3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_attack_slime_3</Name>
+      <Link>content\entities\unit\sfx\slime\unit_attack_slime_3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\slime\unit_death_slime_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_death_slime_1</Name>
+      <Link>content\entities\unit\sfx\slime\unit_death_slime_1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\slime\unit_death_slime_2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_death_slime_2</Name>
+      <Link>content\entities\unit\sfx\slime\unit_death_slime_2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\slime\unit_death_slime_3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_death_slime_3</Name>
+      <Link>content\entities\unit\sfx\slime\unit_death_slime_3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\snake\unit_attack_snake_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_attack_snake_1</Name>
+      <Link>content\entities\unit\sfx\snake\unit_attack_snake_1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\snake\unit_attack_snake_2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_attack_snake_2</Name>
+      <Link>content\entities\unit\sfx\snake\unit_attack_snake_2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\snake\unit_attack_snake_3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_attack_snake_3</Name>
+      <Link>content\entities\unit\sfx\snake\unit_attack_snake_3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\snake\unit_death_snake_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_death_snake_1</Name>
+      <Link>content\entities\unit\sfx\snake\unit_death_snake_1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\snake\unit_death_snake_2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_death_snake_2</Name>
+      <Link>content\entities\unit\sfx\snake\unit_death_snake_2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\snake\unit_death_snake_3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_death_snake_3</Name>
+      <Link>content\entities\unit\sfx\snake\unit_death_snake_3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\weapons\combat_attack_club_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_attack_club_1</Name>
+      <Link>content\entities\unit\sfx\weapons\combat_attack_club_1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\weapons\combat_attack_club_10.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_attack_club_10</Name>
+      <Link>content\entities\unit\sfx\weapons\combat_attack_club_10.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\weapons\combat_attack_club_11.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_attack_club_11</Name>
+      <Link>content\entities\unit\sfx\weapons\combat_attack_club_11.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\weapons\combat_attack_club_12.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_attack_club_12</Name>
+      <Link>content\entities\unit\sfx\weapons\combat_attack_club_12.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\weapons\combat_attack_club_2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_attack_club_2</Name>
+      <Link>content\entities\unit\sfx\weapons\combat_attack_club_2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\weapons\combat_attack_club_3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_attack_club_3</Name>
+      <Link>content\entities\unit\sfx\weapons\combat_attack_club_3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\weapons\combat_attack_club_4.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_attack_club_4</Name>
+      <Link>content\entities\unit\sfx\weapons\combat_attack_club_4.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\weapons\combat_attack_club_5.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_attack_club_5</Name>
+      <Link>content\entities\unit\sfx\weapons\combat_attack_club_5.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\weapons\combat_attack_club_6.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_attack_club_6</Name>
+      <Link>content\entities\unit\sfx\weapons\combat_attack_club_6.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\weapons\combat_attack_club_7.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_attack_club_7</Name>
+      <Link>content\entities\unit\sfx\weapons\combat_attack_club_7.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\weapons\combat_attack_club_8.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_attack_club_8</Name>
+      <Link>content\entities\unit\sfx\weapons\combat_attack_club_8.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\weapons\combat_attack_club_9.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_attack_club_9</Name>
+      <Link>content\entities\unit\sfx\weapons\combat_attack_club_9.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\weapons\combat_attack_magic_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_attack_magic_1</Name>
+      <Link>content\entities\unit\sfx\weapons\combat_attack_magic_1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\weapons\combat_attack_magic_10.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_attack_magic_10</Name>
+      <Link>content\entities\unit\sfx\weapons\combat_attack_magic_10.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\weapons\combat_attack_magic_11.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_attack_magic_11</Name>
+      <Link>content\entities\unit\sfx\weapons\combat_attack_magic_11.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\weapons\combat_attack_magic_12.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_attack_magic_12</Name>
+      <Link>content\entities\unit\sfx\weapons\combat_attack_magic_12.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\weapons\combat_attack_magic_2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_attack_magic_2</Name>
+      <Link>content\entities\unit\sfx\weapons\combat_attack_magic_2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\weapons\combat_attack_magic_3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_attack_magic_3</Name>
+      <Link>content\entities\unit\sfx\weapons\combat_attack_magic_3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\weapons\combat_attack_magic_4.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_attack_magic_4</Name>
+      <Link>content\entities\unit\sfx\weapons\combat_attack_magic_4.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\weapons\combat_attack_magic_5.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_attack_magic_5</Name>
+      <Link>content\entities\unit\sfx\weapons\combat_attack_magic_5.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\weapons\combat_attack_magic_6.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_attack_magic_6</Name>
+      <Link>content\entities\unit\sfx\weapons\combat_attack_magic_6.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\weapons\combat_attack_magic_7.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_attack_magic_7</Name>
+      <Link>content\entities\unit\sfx\weapons\combat_attack_magic_7.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\weapons\combat_attack_magic_8.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_attack_magic_8</Name>
+      <Link>content\entities\unit\sfx\weapons\combat_attack_magic_8.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\weapons\combat_attack_magic_9.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_attack_magic_9</Name>
+      <Link>content\entities\unit\sfx\weapons\combat_attack_magic_9.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\weapons\combat_attack_sword_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_attack_sword_1</Name>
+      <Link>content\entities\unit\sfx\weapons\combat_attack_sword_1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\weapons\combat_attack_sword_10.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_attack_sword_10</Name>
+      <Link>content\entities\unit\sfx\weapons\combat_attack_sword_10.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\weapons\combat_attack_sword_11.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_attack_sword_11</Name>
+      <Link>content\entities\unit\sfx\weapons\combat_attack_sword_11.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\weapons\combat_attack_sword_12.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_attack_sword_12</Name>
+      <Link>content\entities\unit\sfx\weapons\combat_attack_sword_12.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\weapons\combat_attack_sword_2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_attack_sword_2</Name>
+      <Link>content\entities\unit\sfx\weapons\combat_attack_sword_2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\weapons\combat_attack_sword_3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_attack_sword_3</Name>
+      <Link>content\entities\unit\sfx\weapons\combat_attack_sword_3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\weapons\combat_attack_sword_4.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_attack_sword_4</Name>
+      <Link>content\entities\unit\sfx\weapons\combat_attack_sword_4.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\weapons\combat_attack_sword_5.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_attack_sword_5</Name>
+      <Link>content\entities\unit\sfx\weapons\combat_attack_sword_5.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\weapons\combat_attack_sword_6.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_attack_sword_6</Name>
+      <Link>content\entities\unit\sfx\weapons\combat_attack_sword_6.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\weapons\combat_attack_sword_7.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_attack_sword_7</Name>
+      <Link>content\entities\unit\sfx\weapons\combat_attack_sword_7.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\weapons\combat_attack_sword_8.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_attack_sword_8</Name>
+      <Link>content\entities\unit\sfx\weapons\combat_attack_sword_8.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\weapons\combat_attack_sword_9.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>combat_attack_sword_9</Name>
+      <Link>content\entities\unit\sfx\weapons\combat_attack_sword_9.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\worker\unit_attack_worker_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_attack_worker_1</Name>
+      <Link>content\entities\unit\sfx\worker\unit_attack_worker_1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\worker\unit_attack_worker_2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_attack_worker_2</Name>
+      <Link>content\entities\unit\sfx\worker\unit_attack_worker_2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\worker\unit_attack_worker_3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_attack_worker_3</Name>
+      <Link>content\entities\unit\sfx\worker\unit_attack_worker_3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\worker\unit_death_worker_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_death_worker_1</Name>
+      <Link>content\entities\unit\sfx\worker\unit_death_worker_1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\worker\unit_death_worker_2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_death_worker_2</Name>
+      <Link>content\entities\unit\sfx\worker\unit_death_worker_2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\worker\unit_death_worker_3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_death_worker_3</Name>
+      <Link>content\entities\unit\sfx\worker\unit_death_worker_3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\worker\unit_obey_worker_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_obey_worker_1</Name>
+      <Link>content\entities\unit\sfx\worker\unit_obey_worker_1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\worker\unit_obey_worker_2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_obey_worker_2</Name>
+      <Link>content\entities\unit\sfx\worker\unit_obey_worker_2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\worker\unit_obey_worker_3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_obey_worker_3</Name>
+      <Link>content\entities\unit\sfx\worker\unit_obey_worker_3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\worker\unit_obey_worker_4.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_obey_worker_4</Name>
+      <Link>content\entities\unit\sfx\worker\unit_obey_worker_4.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\worker\unit_obey_worker_5.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_obey_worker_5</Name>
+      <Link>content\entities\unit\sfx\worker\unit_obey_worker_5.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\worker\unit_obey_worker_6.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_obey_worker_6</Name>
+      <Link>content\entities\unit\sfx\worker\unit_obey_worker_6.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\worker\unit_obey_worker_7.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_obey_worker_7</Name>
+      <Link>content\entities\unit\sfx\worker\unit_obey_worker_7.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\worker\unit_obey_worker_8.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_obey_worker_8</Name>
+      <Link>content\entities\unit\sfx\worker\unit_obey_worker_8.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\worker\unit_obey_worker_9.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_obey_worker_9</Name>
+      <Link>content\entities\unit\sfx\worker\unit_obey_worker_9.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\worker\unit_select_worker_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_select_worker_1</Name>
+      <Link>content\entities\unit\sfx\worker\unit_select_worker_1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\worker\unit_select_worker_2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_select_worker_2</Name>
+      <Link>content\entities\unit\sfx\worker\unit_select_worker_2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\worker\unit_select_worker_3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_select_worker_3</Name>
+      <Link>content\entities\unit\sfx\worker\unit_select_worker_3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\worker\unit_select_worker_4.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_select_worker_4</Name>
+      <Link>content\entities\unit\sfx\worker\unit_select_worker_4.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\worker\unit_select_worker_5.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_select_worker_5</Name>
+      <Link>content\entities\unit\sfx\worker\unit_select_worker_5.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\worker\unit_select_worker_6.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_select_worker_6</Name>
+      <Link>content\entities\unit\sfx\worker\unit_select_worker_6.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\worker\unit_select_worker_7.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_select_worker_7</Name>
+      <Link>content\entities\unit\sfx\worker\unit_select_worker_7.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\worker\unit_select_worker_8.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_select_worker_8</Name>
+      <Link>content\entities\unit\sfx\worker\unit_select_worker_8.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\worker\unit_select_worker_9.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_select_worker_9</Name>
+      <Link>content\entities\unit\sfx\worker\unit_select_worker_9.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\worker\unit_spawn_worker_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_spawn_worker_1</Name>
+      <Link>content\entities\unit\sfx\worker\unit_spawn_worker_1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\worker\unit_spawn_worker_2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_spawn_worker_2</Name>
+      <Link>content\entities\unit\sfx\worker\unit_spawn_worker_2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\worker\unit_spawn_worker_3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_spawn_worker_3</Name>
+      <Link>content\entities\unit\sfx\worker\unit_spawn_worker_3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\worker\unit_spawn_worker_4.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_spawn_worker_4</Name>
+      <Link>content\entities\unit\sfx\worker\unit_spawn_worker_4.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\worker\unit_spawn_worker_5.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_spawn_worker_5</Name>
+      <Link>content\entities\unit\sfx\worker\unit_spawn_worker_5.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\unit\sfx\worker\unit_spawn_worker_6.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>unit_spawn_worker_6</Name>
+      <Link>content\entities\unit\sfx\worker\unit_spawn_worker_6.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\fr_battlesong_loop.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>FR_BattleSong_Loop</Name>
+      <Link>content\screens\gamescreen\fr_battlesong_loop.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\fr_battlesong_loop.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>FR_BattleSong_Loop</Name>
+      <Link>content\screens\gamescreen\fr_battlesong_loop.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\fr_townsong_loop.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>FR_TownSong_Loop</Name>
+      <Link>content\screens\gamescreen\fr_townsong_loop.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\fr_townsong_loop.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>FR_TownSong_Loop</Name>
+      <Link>content\screens\gamescreen\fr_townsong_loop.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\fr_victorysong.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>FR_VictorySong</Name>
+      <Link>content\screens\gamescreen\fr_victorysong.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\fr_victorysong.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>FR_VictorySong</Name>
+      <Link>content\screens\gamescreen\fr_victorysong.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\sfx\ui_collect_gold_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>ui_collect_gold_1</Name>
+      <Link>content\screens\gamescreen\sfx\ui_collect_gold_1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\sfx\ui_collect_lumber_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>ui_collect_lumber_1</Name>
+      <Link>content\screens\gamescreen\sfx\ui_collect_lumber_1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\sfx\ui_collect_stone_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>ui_collect_stone_1</Name>
+      <Link>content\screens\gamescreen\sfx\ui_collect_stone_1.xnb</Link>
+    </None>
+    <None Include="content\characterssheet.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>CharactersSheet</Name>
+    </None>
+    <None Include="content\entities\building\animationchainlistfile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
+    </None>
+    <None Include="content\entities\encounterspawnpoint\animationchainlistfile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
+    </None>
+    <None Include="content\entities\roadmanager\animationchainlistfile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
+    </None>
+    <None Include="content\entities\unit\animationchainlistfile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
+    </None>
+    <None Include="content\globalcontent\buildingdata.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>BuildingData</Name>
+    </None>
+    <None Include="content\globalcontent\cursorgraphics\attackcursor.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AttackCursor</Name>
+    </None>
+    <None Include="content\globalcontent\cursorgraphics\movecursor.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>MoveCursor</Name>
+    </None>
+    <None Include="content\globalcontent\cursorgraphics\selectcursor.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SelectCursor</Name>
+    </None>
+    <None Include="content\globalcontent\cursorgraphics\targetcursor.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>TargetCursor</Name>
+    </None>
+    <None Include="content\globalcontent\encounterpointdata.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>EncounterPointData</Name>
+    </None>
+    <None Include="content\globalcontent\gumanimationchains.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>GumAnimationChains</Name>
+    </None>
+    <None Include="content\globalcontent\timedspawndata.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>TimedSpawnData</Name>
+    </None>
+    <None Include="content\globalcontent\unitdata.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>UnitData</Name>
+    </None>
+    <None Include="content\gumproject\components\actionstackcontainer.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>actionstackcontainer</Name>
+    </None>
+    <None Include="content\gumproject\components\actiontoolbar.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>actiontoolbar</Name>
+    </None>
+    <None Include="content\gumproject\components\fonttest.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>fonttest</Name>
+    </None>
+    <None Include="content\gumproject\components\framedbutton.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>framedbutton</Name>
+    </None>
+    <None Include="content\gumproject\components\graphics\minimapbackground.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>minimapbackground</Name>
+    </None>
+    <None Include="content\gumproject\components\groupselector.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>groupselector</Name>
+    </None>
+    <None Include="content\gumproject\components\healthbar.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>healthbar</Name>
+    </None>
+    <None Include="content\gumproject\components\iconbutton.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>iconbutton</Name>
+    </None>
+    <None Include="content\gumproject\components\menutitledisplay.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>menutitledisplay</Name>
+    </None>
+    <None Include="content\gumproject\components\minimapcontents.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>minimapcontents</Name>
+    </None>
+    <None Include="content\gumproject\components\resource.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>resource</Name>
+    </None>
+    <None Include="content\gumproject\components\resourcecostcontainer.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>resourcecostcontainer</Name>
+    </None>
+    <None Include="content\gumproject\components\resourcecostdisplay.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>resourcecostdisplay</Name>
+    </None>
+    <None Include="content\gumproject\components\resourcedisplay.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>resourcedisplay</Name>
+    </None>
+    <None Include="content\gumproject\components\selectedbuttondisplay.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>selectedbuttondisplay</Name>
+    </None>
+    <None Include="content\gumproject\components\trainingunitsprite.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>trainingunitsprite</Name>
+    </None>
+    <None Include="content\gumproject\components\xbutton.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>xbutton</Name>
+    </None>
+    <None Include="content\gumproject\fontcache\font-1.fnt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>font-1</Name>
+    </None>
+    <None Include="content\gumproject\fontcache\font-1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>font-1</Name>
+    </None>
+    <None Include="content\gumproject\fontcache\font-2.fnt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>font-2</Name>
+    </None>
+    <None Include="content\gumproject\fontcache\font-2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>font-2</Name>
+    </None>
+    <None Include="content\gumproject\fontcache\font18arial.fnt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>font18arial</Name>
+    </None>
+    <None Include="content\gumproject\fontcache\font18arial_0.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font18Arial_0</Name>
+    </None>
+    <None Include="content\gumproject\gumproject.gumx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>GumProject</Name>
+    </None>
+    <None Include="content\gumproject\screens\gamescreengum.gusx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>gamescreengum</Name>
+    </None>
+    <None Include="content\gumproject\screens\mainmenugum.gusx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>mainmenugum</Name>
+    </None>
+    <None Include="content\gumproject\screens\testscreengum.gusx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>testscreengum</Name>
+    </None>
+    <None Include="content\gumproject\standards\circle.gutx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>circle</Name>
+    </None>
+    <None Include="content\gumproject\standards\coloredrectangle.gutx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>coloredrectangle</Name>
+    </None>
+    <None Include="content\gumproject\standards\component.gutx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>component</Name>
+    </None>
+    <None Include="content\gumproject\standards\container.gutx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>container</Name>
+    </None>
+    <None Include="content\gumproject\standards\nineslice.gutx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>nineslice</Name>
+    </None>
+    <None Include="content\gumproject\standards\polygon.gutx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>polygon</Name>
+    </None>
+    <None Include="content\gumproject\standards\rectangle.gutx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>rectangle</Name>
+    </None>
+    <None Include="content\gumproject\standards\sprite.gutx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>sprite</Name>
+    </None>
+    <None Include="content\gumproject\standards\standardgraphics\red_bottomcenter.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>red_bottomcenter</Name>
+    </None>
+    <None Include="content\gumproject\standards\standardgraphics\red_bottomleft.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>red_bottomleft</Name>
+    </None>
+    <None Include="content\gumproject\standards\standardgraphics\red_bottomright.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>red_bottomright</Name>
+    </None>
+    <None Include="content\gumproject\standards\standardgraphics\red_center.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>red_center</Name>
+    </None>
+    <None Include="content\gumproject\standards\standardgraphics\red_left.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>red_left</Name>
+    </None>
+    <None Include="content\gumproject\standards\standardgraphics\red_right.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>red_right</Name>
+    </None>
+    <None Include="content\gumproject\standards\standardgraphics\red_topcenter.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>red_topcenter</Name>
+    </None>
+    <None Include="content\gumproject\standards\standardgraphics\red_topleft.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>red_topleft</Name>
+    </None>
+    <None Include="content\gumproject\standards\standardgraphics\red_topright.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>red_topright</Name>
+    </None>
+    <None Include="content\gumproject\standards\text.gutx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>text</Name>
+    </None>
+    <None Include="content\maintileset.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>maintileset</Name>
+    </None>
+    <None Include="content\screens\gamescreen\worldmap.tmx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>WorldMap</Name>
+    </None>
+    <None Include="Libraries\DesktopGl\Debug\FlatRedBall.Forms.dll" />
+    <None Include="Libraries\DesktopGl\Debug\GumCoreXnaPc.dll" />
+    <None Include="Libraries\DesktopGl\Debug\StateInterpolation.dll" />
+    <None Include="Libraries\DesktopGl\Release\FlatRedBall.Forms.dll" />
+    <None Include="Libraries\DesktopGl\Release\GumCoreXnaPc.dll" />
+    <None Include="Libraries\DesktopGl\Release\StateInterpolation.dll" />
+    <Content Include="MonoGame.Framework.dll.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="libopenal.1.dylib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="libSDL2-2.0.0.dylib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="packages.config" />
+    <None Include="x64\SDL2.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="x64\soft_oal.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="x86\SDL2.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="x86\soft_oal.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <EmbeddedResource Include="Icon.ico" />
+    <None Include="Libraries\DesktopGl\Debug\Lidgren.Network.dll" />
+    <None Include="Libraries\DesktopGl\Debug\MonoGame.Framework.Net.dll" />
+    <None Include="Libraries\DesktopGl\Debug\NVorbis.dll" />
+    <None Include="Libraries\DesktopGl\Debug\OpenTK.dll" />
+    <None Include="Libraries\DesktopGl\Release\Lidgren.Network.dll" />
+    <None Include="Libraries\DesktopGl\Release\MonoGame.Framework.Net.dll" />
+    <None Include="Libraries\DesktopGl\Release\NVorbis.dll" />
+    <None Include="Libraries\DesktopGl\Release\OpenTK.dll" />
+    <Content Include="OpenTK.dll.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="x64\libopenal.so.1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="x64\libSDL2-2.0.so.0">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="x86\libopenal.so.1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="x86\libSDL2-2.0.so.0">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AI\AttackBuildingHighLevelGoal.cs" />
+    <Compile Include="AI\AttackMoveHighLevelGoal.cs" />
+    <Compile Include="AI\AttackThenRetreat.cs" />
+    <Compile Include="AI\CollectResourceHighLevelGoal.cs" />
+    <Compile Include="AI\AttackUnitHighLevelGoal.cs" />
+    <Compile Include="AI\FindTargetToAttackHighLevelGoal.cs" />
+    <Compile Include="AI\HighLevelGoal.cs" />
+    <Compile Include="AI\ImmediateGoal.cs" />
+    <Compile Include="AI\WalkToHighLevelGoal.cs" />
+    <Compile Include="CombatTracker.cs" />
+    <Compile Include="CustomCursorGraphicController.cs" />
+    <Compile Include="CustomEvents\ConstructBuildingEventArgs.cs" />
+    <Compile Include="CustomEvents\TrainUnitEventArgs.cs" />
+    <Compile Include="CustomEvents\UpdateUiEventArgs.cs" />
+    <Compile Include="CustomEvents\UpdatesStatusEventArgs.cs" />
+    <Compile Include="DataTypes\BuildingData.cs" />
+    <Compile Include="DataTypes\BuildingData.Generated.cs">
+      <DependentUpon>BuildingData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataTypes\EncounterPointData.Generated.cs" />
+    <Compile Include="DataTypes\Requirement.cs" />
+    <Compile Include="DataTypes\TileMapInfo.Generated.cs" />
+    <Compile Include="DataTypes\TimedSpawnData.Generated.cs" />
+    <Compile Include="DataTypes\UnitData.cs" />
+    <Compile Include="DataTypes\UnitData.Generated.cs">
+      <DependentUpon>UnitData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Building.cs" />
+    <Compile Include="Entities\Building.Event.cs">
+      <DependentUpon>Building.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Building.Generated.cs">
+      <DependentUpon>Building.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Building.Generated.Event.cs">
+      <DependentUpon>Building.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Building.Sfx.cs">
+      <DependentUpon>Building.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\BuildingMarker.cs" />
+    <Compile Include="Entities\BuildingMarker.Event.cs">
+      <DependentUpon>BuildingMarker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\BuildingMarker.Generated.cs">
+      <DependentUpon>BuildingMarker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\BuildingMarker.Generated.Event.cs">
+      <DependentUpon>BuildingMarker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\DebuggingVariables.cs" />
+    <Compile Include="Entities\DebuggingVariables.Generated.cs">
+      <DependentUpon>DebuggingVariables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\EncounterSpawnPoint.cs" />
+    <Compile Include="Entities\EncounterSpawnPoint.Generated.cs">
+      <DependentUpon>EncounterSpawnPoint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\GroupSelector.cs" />
+    <Compile Include="Entities\GroupSelector.Generated.cs">
+      <DependentUpon>GroupSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\RallyPointMarker.cs" />
+    <Compile Include="Entities\RallyPointMarker.Generated.cs">
+      <DependentUpon>RallyPointMarker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\RoadManager.cs" />
+    <Compile Include="Entities\RoadManager.Generated.cs">
+      <DependentUpon>RoadManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SelectionMarker.cs" />
+    <Compile Include="Entities\SelectionMarker.Generated.cs">
+      <DependentUpon>SelectionMarker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Unit.cs" />
+    <Compile Include="Entities\Unit.Event.cs">
+      <DependentUpon>Unit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Unit.Generated.cs">
+      <DependentUpon>Unit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Unit.Generated.Event.cs">
+      <DependentUpon>Unit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Unit.Sfx.cs">
+      <DependentUpon>Unit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Factories\BuildingFactory.Generated.cs" />
+    <Compile Include="Factories\EncounterSpawnPointFactory.Generated.cs" />
+    <Compile Include="Factories\RallyPointMarkerFactory.Generated.cs" />
+    <Compile Include="Factories\UnitFactory.Generated.cs" />
+    <Compile Include="FileAliases.Generated.cs" />
+    <Compile Include="GlobalContent.Generated.cs" />
+    <Compile Include="GlueControl\GlueControlManager.Generated.cs" />
+    <Compile Include="GumRuntimes\ActionStackContainerRuntime.cs" />
+    <Compile Include="GumRuntimes\ActionStackContainerRuntime.Generated.cs">
+      <DependentUpon>ActionStackContainerRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\ActionToolbarRuntime.cs" />
+    <Compile Include="GumRuntimes\ActionToolbarRuntime.EntitySelection.cs">
+      <DependentUpon>ActionToolbarRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\ActionToolbarRuntime.Generated.cs">
+      <DependentUpon>ActionToolbarRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\Behaviors\IButtonBehavior.Generated.cs" />
+    <Compile Include="GumRuntimes\Behaviors\IToggleBehavior.Generated.cs" />
+    <Compile Include="GumRuntimes\CircleRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\ColoredRectangleRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\ContainerRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\FontTestRuntime.cs" />
+    <Compile Include="GumRuntimes\FontTestRuntime.Generated.cs">
+      <DependentUpon>FontTestRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\FramedButtonRuntime.cs" />
+    <Compile Include="GumRuntimes\FramedButtonRuntime.Generated.cs">
+      <DependentUpon>FramedButtonRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\GameScreenGumRuntime.cs" />
+    <Compile Include="GumRuntimes\GameScreenGumRuntime.Generated.cs">
+      <DependentUpon>GameScreenGumRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\GroupSelectorRuntime.cs" />
+    <Compile Include="GumRuntimes\GroupSelectorRuntime.Generated.cs">
+      <DependentUpon>GroupSelectorRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\GumIdb.Generated.cs" />
+    <Compile Include="GumRuntimes\HealthBarRuntime.cs" />
+    <Compile Include="GumRuntimes\HealthBarRuntime.Generated.cs">
+      <DependentUpon>HealthBarRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\IconButtonRuntime.cs" />
+    <Compile Include="GumRuntimes\IconButtonRuntime.Generated.cs">
+      <DependentUpon>IconButtonRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\MainMenuGumRuntime.cs" />
+    <Compile Include="GumRuntimes\MainMenuGumRuntime.Generated.cs">
+      <DependentUpon>MainMenuGumRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\MenuTitleDisplayRuntime.cs" />
+    <Compile Include="GumRuntimes\MenuTitleDisplayRuntime.Generated.cs">
+      <DependentUpon>MenuTitleDisplayRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\MinimapContentsRuntime.cs" />
+    <Compile Include="GumRuntimes\MinimapContentsRuntime.Generated.cs">
+      <DependentUpon>MinimapContentsRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\NineSliceRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\PolygonRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\RectangleRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\ResourceCostContainerRuntime.cs" />
+    <Compile Include="GumRuntimes\ResourceCostContainerRuntime.Generated.cs">
+      <DependentUpon>ResourceCostContainerRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\ResourceCostDisplayRuntime.cs" />
+    <Compile Include="GumRuntimes\ResourceCostDisplayRuntime.Generated.cs">
+      <DependentUpon>ResourceCostDisplayRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\ResourceDisplayRuntime.cs" />
+    <Compile Include="GumRuntimes\ResourceDisplayRuntime.Generated.cs">
+      <DependentUpon>ResourceDisplayRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\ResourceRuntime.cs" />
+    <Compile Include="GumRuntimes\ResourceRuntime.Generated.cs">
+      <DependentUpon>ResourceRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\SelectedButtonDisplayRuntime.cs" />
+    <Compile Include="GumRuntimes\SelectedButtonDisplayRuntime.Generated.cs">
+      <DependentUpon>SelectedButtonDisplayRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\SpriteRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\TestScreenGumRuntime.cs" />
+    <Compile Include="GumRuntimes\TestScreenGumRuntime.Generated.cs">
+      <DependentUpon>TestScreenGumRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\TextRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\TrainingUnitSpriteRuntime.cs" />
+    <Compile Include="GumRuntimes\TrainingUnitSpriteRuntime.Generated.cs">
+      <DependentUpon>TrainingUnitSpriteRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\XButtonRuntime.cs" />
+    <Compile Include="GumRuntimes\XButtonRuntime.Generated.cs">
+      <DependentUpon>XButtonRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\ICommonEntityData.cs" />
+    <Compile Include="Interfaces\IUpdatesStatus.cs" />
+    <Compile Include="Performance\IEntityFactory.Generated.cs" />
+    <Compile Include="Performance\PoolList.Generated.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Game1.cs" />
+    <Compile Include="Screens\GameScreen.cs" />
+    <Compile Include="Screens\GameScreen.Event.cs">
+      <DependentUpon>GameScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\GameScreen.Generated.cs">
+      <DependentUpon>GameScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\GameScreen.Generated.Event.cs">
+      <DependentUpon>GameScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\MainMenu.cs" />
+    <Compile Include="Screens\MainMenu.Generated.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\TestScreen.cs" />
+    <Compile Include="Screens\TestScreen.Generated.cs">
+      <DependentUpon>TestScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\CameraSetup.cs" />
+    <Compile Include="SoundEffectTracker.cs" />
+    <Compile Include="Spawning\RaidSpawner.cs" />
+    <Compile Include="TileCollisions\CollidableListVsTileShapeCollectionRelationship.cs" />
+    <Compile Include="TileCollisions\CollidableVsTileShapeCollectionRelationship.cs" />
+    <Compile Include="TileCollisions\CollisionManagerTileShapeCollectionExtensions.cs" />
+    <Compile Include="TileCollisions\TileShapeCollection.cs" />
+    <Compile Include="TileEntities\TileEntityInstantiator.cs" />
+    <Compile Include="TileGraphics\AbstractMapLayer.cs" />
+    <Compile Include="TileGraphics\AnimationChainContainer.cs" />
+    <Compile Include="TileGraphics\ExternalTileset.cs" />
+    <Compile Include="TileGraphics\LayeredTileMap.cs" />
+    <Compile Include="TileGraphics\LayeredTileMapAnimation.cs" />
+    <Compile Include="TileGraphics\MapDrawableBatch.cs" />
+    <Compile Include="TileGraphics\MapLayer.cs" />
+    <Compile Include="TileGraphics\MapTileset.cs" />
+    <Compile Include="TileGraphics\MapTilesetTile.cs" />
+    <Compile Include="TileGraphics\NamedValue.cs" />
+    <Compile Include="TileGraphics\ReducedTileMapInfo.cs" />
+    <Compile Include="TileGraphics\ReducedTileMapInfo.TiledMapSave.cs">
+      <DependentUpon>ReducedTileMapInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TileGraphics\TileAnimation.cs" />
+    <Compile Include="TileGraphics\TileAnimationFrame.cs" />
+    <Compile Include="TileGraphics\TiledMapSave.Conversion.cs" />
+    <Compile Include="TileGraphics\TiledMapSave.Serialization.cs" />
+    <Compile Include="TileGraphics\TiledMapToShapeCollectionConverter.cs" />
+    <Compile Include="TileGraphics\TileNodeNetworkCreator.cs" />
+    <Compile Include="TileGraphics\Tileset.cs" />
+    <Compile Include="TileGraphics\TilesetExtensionMethods.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Game.ico" />
+    <Content Include="GameThumbnail.png" />
+    <None Include="redball.BMP">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\FlatRedBall\Engines\FlatRedBallXNA\FlatRedBall\FlatRedBallDesktopGL.csproj">
+      <Project>{10bda06c-7269-4cce-ae2a-d445f414520a}</Project>
+      <Name>FlatRedBallDesktopGL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\FlatRedImGui\FlatRedImGui.csproj">
+      <Project>{cf26358e-0e25-4c40-a626-9c7753e7eefa}</Project>
+      <Name>FlatRedImGui</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
+  <Import Project="..\..\..\packages\MonoGame.Framework.DesktopGL.3.8.0.1375-develop\build\MonoGame.Framework.DesktopGL.targets" Condition="Exists('..\..\..\packages\MonoGame.Framework.DesktopGL.3.8.0.1375-develop\build\MonoGame.Framework.DesktopGL.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\..\packages\MonoGame.Framework.DesktopGL.3.8.0.1375-develop\build\MonoGame.Framework.DesktopGL.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\MonoGame.Framework.DesktopGL.3.8.0.1375-develop\build\MonoGame.Framework.DesktopGL.targets'))" />
+    <Error Condition="!Exists('..\..\..\packages\ImGui.NET.1.75.0\build\net40\ImGui.NET.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\ImGui.NET.1.75.0\build\net40\ImGui.NET.targets'))" />
+  </Target>
+  <Import Project="..\..\..\packages\ImGui.NET.1.75.0\build\net40\ImGui.NET.targets" Condition="Exists('..\..\..\packages\ImGui.NET.1.75.0\build\net40\ImGui.NET.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

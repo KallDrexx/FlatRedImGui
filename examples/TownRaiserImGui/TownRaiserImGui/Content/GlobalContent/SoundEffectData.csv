@@ -1,0 +1,9 @@
+"Name (string, required)",SoundCategory (string),SecondsBetweenPlays (double)
+GatherLumber,unit_chop_wood,.5
+GatherStone,,.5
+GatherGold,unit_mine_gold,.5
+UnitSpawn,spawn,.5
+UnitDeath,death,1
+UnitAttack,attack,1
+UnitObey,obey,1
+UnitSelect,select,1

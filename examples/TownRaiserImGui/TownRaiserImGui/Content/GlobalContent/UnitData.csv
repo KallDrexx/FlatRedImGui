@@ -1,0 +1,12 @@
+"Name (string, required)",NameDisplay (string),SoundEffectName (string),WeaponSoundEffectName (string),Health (int),TrainTime (double),ResourceHarvestAmount (int),AttackDamage (int),AttackRange (float),MovementSpeed (float),BounceAdditionalMagnitude (int),AttackBounceAdditionalMagnitude (int),AttackWobbleAdditionalMagnitude (int),GoldCost (int),Capacity (int),Size (string),IsEnemy (bool),InitiatesBattle (bool),HotkeyFieldButUseProperty (Microsoft.Xna.Framework.Input.Keys)
+Worker,Worker,worker,,75,5,20,10,10,50,,,,50,1,Small,FALSE,FALSE,W
+Fighter,Fighter,fighter,sword,150,10,,18,12,40,,5,10,100,1,Small,FALSE,TRUE,F
+Slime,Slime,slime,,20,,,3,9,40,,,,,,Small,TRUE,TRUE,
+Bat,Bat,bat,,40,,,5,9,70,,,,,,Small,TRUE,TRUE,B
+Goblin,Goblin,goblin,club,60,,,10,10,50,,,,,,Small,TRUE,TRUE,G
+Skeleton,Skeleton,skeleton,,100,,,15,9,20,,,,,,Small,TRUE,TRUE,
+Snake,Snake,snake,,120,,,15,9,65,,,,,,Medium,TRUE,TRUE,
+KingSkeleton,King Skeleton,kingskeleton,,300,,,30,12,30,,,,,,Small,TRUE,TRUE,
+Cyclops,Cyclops,cyclops,,500,,,40,12,40,,,,,,Small,TRUE,TRUE,
+Octopus,Tako Tako,octopus,,750,,,50,20,25,,,,,,Large,TRUE,TRUE,
+Dragon,Dragon,dragon,,1200,,,75,16,50,,,,,,Large,TRUE,TRUE,

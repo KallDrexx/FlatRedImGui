@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<objecttypes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <objecttype name="Building">
+    <property name="BuildingData" type="TownRaiserImGui.DataTypes.BuildingData" default="Tent in BuildingData.csv" />
+    <property name="SpriteInstanceAlpha" type="float" default="1" />
+  </objecttype>
+  <objecttype name="EncounterSpawnPoint">
+    <property name="RegenerationTime" type="float" default="40" />
+    <property name="Difficulty" type="int" default="1" />
+  </objecttype>
+  <objecttype name="RallyPointMarker">
+    <property name="SpriteInstanceVisible" type="bool" default="true" />
+  </objecttype>
+  <objecttype name="Unit">
+    <property name="TeamIndex" type="int" />
+    <property name="UnitData" type="TownRaiserImGui.DataTypes.UnitData" />
+    <property name="SpriteInstanceAlpha" type="float" default="1" />
+    <property name="DeathSpriteDuration" type="float" default="5" />
+    <property name="HopsPerSecond" type="float" default="2" />
+    <property name="AttackWobblesPerSecond" type="float" default="2" />
+  </objecttype>
+</objecttypes>

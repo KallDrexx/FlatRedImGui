@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AnimationChainArraySave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <FileRelativeTextures>true</FileRelativeTextures>
+  <TimeMeasurementUnit>Undefined</TimeMeasurementUnit>
+  <CoordinateType>Pixel</CoordinateType>
+  <AnimationChain>
+    <Name>ActiveWaiting</Name>
+    <ColorKey>0</ColorKey>
+    <Frame>
+      <TextureName>../../MainTileset.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>384</LeftCoordinate>
+      <RightCoordinate>400</RightCoordinate>
+      <TopCoordinate>32</TopCoordinate>
+      <BottomCoordinate>48</BottomCoordinate>
+    </Frame>
+  </AnimationChain>
+  <AnimationChain>
+    <Name>Spawned</Name>
+    <ColorKey>0</ColorKey>
+    <Frame>
+      <TextureName>../../MainTileset.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>384</LeftCoordinate>
+      <RightCoordinate>400</RightCoordinate>
+      <TopCoordinate>48</TopCoordinate>
+      <BottomCoordinate>64</BottomCoordinate>
+    </Frame>
+  </AnimationChain>
+  <AnimationChain>
+    <Name>Defeated</Name>
+    <ColorKey>0</ColorKey>
+    <Frame>
+      <TextureName>../../MainTileset.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>384</LeftCoordinate>
+      <RightCoordinate>400</RightCoordinate>
+      <TopCoordinate>64</TopCoordinate>
+      <BottomCoordinate>80</BottomCoordinate>
+    </Frame>
+  </AnimationChain>
+</AnimationChainArraySave>
