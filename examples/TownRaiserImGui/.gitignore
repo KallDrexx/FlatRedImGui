@@ -1,9 +1,7 @@
 # FRB
 
-*.Generated.cs
 *.csvSettings
 *.cachefile
-*.Generated.Event.cs
 *.gvwx
 *.aeproperties
 
