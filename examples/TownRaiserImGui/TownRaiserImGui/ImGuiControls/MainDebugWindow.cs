@@ -7,7 +7,7 @@ namespace TownRaiserImGui.ImGuiControls
     public class MainDebugWindow : ImGuiElement
     {
         private readonly List<GlobalUnitEditor> _globalUnitEditors = new List<GlobalUnitEditor>();
-        private readonly Dictionary<GlobalUnitEditor, bool> _unitEditorExpandedMap = new Dictionary<GlobalUnitEditor, bool>();
+        private readonly List<GlobalBuildingEditor> _globalBuildingEditors = new List<GlobalBuildingEditor>();
         
         public int GoldCount
         {
@@ -36,7 +36,11 @@ namespace TownRaiserImGui.ImGuiControls
         public void Add(GlobalUnitEditor globalUnitEditor)
         {
             _globalUnitEditors.Add(globalUnitEditor);
-            _unitEditorExpandedMap[globalUnitEditor] = false;
+        }
+
+        public void Add(GlobalBuildingEditor globalBuildingEditor)
+        {
+            _globalBuildingEditors.Add(globalBuildingEditor);
         }
 
         protected override void CustomRender()
@@ -49,25 +53,14 @@ namespace TownRaiserImGui.ImGuiControls
                 
                 ImGui.NewLine();
 
-                var muteMusic = MuteMusic;
-                ImGui.Checkbox("Mute Music", ref muteMusic);
-                MuteMusic = muteMusic;
-                
+                Checkbox(nameof(MuteMusic), "Mute Music");
                 if (ImGui.CollapsingHeader("Available Resources"))
                 {
                     ImGui.LabelText("Resource", "Count");
-
-                    var gold = GoldCount;
-                    ImGui.InputInt("Gold", ref gold, 1);
-                    GoldCount = gold;
-
-                    var lumber = LumberCount;
-                    ImGui.InputInt("Lumber", ref lumber, 1);
-                    LumberCount = lumber;
-
-                    var stone = StoneCount;
-                    ImGui.InputInt("Stone", ref stone, 1);
-                    StoneCount = stone;
+                    
+                    InputInt(nameof(GoldCount), "Gold");
+                    InputInt(nameof(LumberCount), "Lumber");
+                    InputInt(nameof(StoneCount), "Stone");
                 }
 
                 if (ImGui.CollapsingHeader("Unit / Building Data"))
@@ -76,28 +69,30 @@ namespace TownRaiserImGui.ImGuiControls
                     {
                         foreach (var globalUnitEditor in _globalUnitEditors)
                         {
-                            if (_unitEditorExpandedMap[globalUnitEditor])
-                            {
-                                ImGui.SetNextItemOpen(true);
-                            }
-                            
                             if (ImGui.TreeNode(globalUnitEditor.UnitId, globalUnitEditor.DisplayName))
                             {
-                                _unitEditorExpandedMap[globalUnitEditor] = true;
-                                
-                                // Unit editor should always be visible
-                                globalUnitEditor.IsVisible = true;
+                                globalUnitEditor.IsVisible = true; // Unit editor should always be visible
                                 globalUnitEditor.Render();
                                 
                                 ImGui.TreePop();
                             }
-                            else
-                            {
-                                _unitEditorExpandedMap[globalUnitEditor] = false;
-                            }
                         }
                         
                         ImGui.TreePop();
+                    }
+
+                    if (ImGui.TreeNode("Buildings"))
+                    {
+                        foreach (var editor in _globalBuildingEditors)
+                        {
+                            if (ImGui.TreeNode(editor.BuildingId, editor.DisplayName))
+                            {
+                                editor.IsVisible = true;
+                                editor.Render();
+                                
+                                ImGui.TreePop();
+                            }
+                        }
                     }
                 }
             }

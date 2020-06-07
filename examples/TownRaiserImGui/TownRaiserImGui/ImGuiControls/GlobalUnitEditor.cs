@@ -1,5 +1,4 @@
 ﻿using FlatRedImGui;
-using ImGuiNET;
 using TownRaiserImGui.DataTypes;
 
 namespace TownRaiserImGui.ImGuiControls
@@ -75,37 +74,14 @@ namespace TownRaiserImGui.ImGuiControls
         
         protected override void CustomRender()
         {
-            var displayNameBuffer = GetTextBuffer(nameof(DisplayName));
-            ImGui.InputText("Display Name", displayNameBuffer, (uint) displayNameBuffer.Length);
-            UpdatePropertyFromTextBuffer(nameof(DisplayName));
-
-            var health = Health;
-            ImGui.InputInt("Health", ref health);
-            Health = health;
-
-            var gold = GoldCost;
-            ImGui.InputInt("Gold Cost", ref gold);
-            GoldCost = gold;
-
-            var capacity = Capacity;
-            ImGui.InputInt("Capacity", ref capacity);
-            Capacity = capacity;
-
-            var damage = AttackDamage;
-            ImGui.InputInt("Damage", ref damage);
-            AttackDamage = damage;
-
-            var range = AttackRange;
-            ImGui.InputFloat("Attack Range", ref range);
-            AttackRange = range;
-
-            var speed = MovementSpeed;
-            ImGui.InputFloat("Movement Speed", ref speed);
-            MovementSpeed = speed;
-
-            var harvest = ResourceHarvestAmount;
-            ImGui.InputInt("Harvest Amount", ref harvest);
-            ResourceHarvestAmount = harvest;
+            InputText(nameof(DisplayName), "Display Name");
+            InputInt(nameof(Health), "Health");
+            InputInt(nameof(GoldCost), "Gold Cost");
+            InputInt(nameof(Capacity), "Capacity");
+            InputInt(nameof(AttackDamage), "Attack Damage");
+            InputFloat(nameof(AttackRange), "Attack Range");
+            InputFloat(nameof(MovementSpeed), "Movement Speed");
+            InputInt(nameof(ResourceHarvestAmount), "Resource Harvesting");
         }
     }
 }

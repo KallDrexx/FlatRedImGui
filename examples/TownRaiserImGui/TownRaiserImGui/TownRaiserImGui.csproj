@@ -1599,6 +1599,7 @@
       <DependentUpon>XButtonRuntime.cs</DependentUpon>
     </Compile>
     <Compile Include="ImGuiControls\DemoWindow.cs" />
+    <Compile Include="ImGuiControls\GlobalBuildingEditor.cs" />
     <Compile Include="ImGuiControls\MainDebugWindow.cs" />
     <Compile Include="ImGuiControls\GlobalUnitEditor.cs" />
     <Compile Include="Interfaces\ICommonEntityData.cs" />

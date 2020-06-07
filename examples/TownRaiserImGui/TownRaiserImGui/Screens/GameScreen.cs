@@ -138,7 +138,7 @@ namespace TownRaiserImGui.Screens
 
             InitializeMusic();
 
-            InitializeDebugUI();
+            InitializeDebugUi();
         }
 
         private void InitializeMusic()
@@ -413,12 +413,18 @@ namespace TownRaiserImGui.Screens
             }
         }
 
-        private void InitializeDebugUI()
+        private void InitializeDebugUi()
         {
             _debugWindow = new MainDebugWindow {IsVisible = false};
             _debugWindow.PropertyChanged += DebugWindowOnPropertyChanged;
             ImGuiManager.Current.AddElement(_debugWindow);
 
+            SetupGlobalUnitEditors();
+            SetupGlobalBuildingEditors();
+        }
+
+        private void SetupGlobalUnitEditors()
+        {
             foreach (var unitKey in GlobalContent.UnitData.Keys)
             {
                 var editor = new GlobalUnitEditor(GlobalContent.UnitData[unitKey]);
@@ -464,7 +470,47 @@ namespace TownRaiserImGui.Screens
                 };
             }
         }
-        
+
+        private void SetupGlobalBuildingEditors()
+        {
+            foreach (var buildingKey in GlobalContent.BuildingData.Keys)
+            {
+                var buildingInfo = GlobalContent.BuildingData[buildingKey];
+                var editor = new GlobalBuildingEditor(buildingInfo);
+                _debugWindow.Add(editor);
+
+                editor.PropertyChanged += (sender, args) =>
+                {
+                    switch (args.PropertyName)
+                    {
+                        case nameof(GlobalBuildingEditor.DisplayName):
+                            buildingInfo.NameDisplay = editor.DisplayName;
+                            break;
+                        
+                        case nameof(GlobalBuildingEditor.Capacity):
+                            buildingInfo.Capacity = editor.Capacity;
+                            break;
+                        
+                        case nameof(GlobalBuildingEditor.Health):
+                            buildingInfo.Health = editor.Health;
+                            break;
+                        
+                        case nameof(GlobalBuildingEditor.BuildTime):
+                            buildingInfo.BuildTime = editor.BuildTime;
+                            break;
+                        
+                        case nameof(GlobalBuildingEditor.LumberCost):
+                            buildingInfo.LumberCost = editor.LumberCost;
+                            break;
+                        
+                        case nameof(GlobalBuildingEditor.StoneCost):
+                            buildingInfo.StoneCost = editor.StoneCost;
+                            break;
+                    }
+                };
+            }
+        }
+
         #endregion
 
         #region Activity Methods

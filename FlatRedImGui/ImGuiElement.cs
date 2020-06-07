@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
+using ImGuiNET;
 
 namespace FlatRedImGui
 {
@@ -92,7 +93,7 @@ namespace FlatRedImGui
         /// Sets the raw value of a property to the specified value.  The object must be the same type (or castable
         /// to the same type) as the corresponding `Get` type, or else an exception will occur at runtime.
         /// </summary>
-        protected void Set(object value, [CallerMemberName] string propertyName = null, bool updateTextBuffer = true)
+        protected void Set(object value, [CallerMemberName] string propertyName = null)
         {
             if (string.IsNullOrWhiteSpace(propertyName))
             {
@@ -109,7 +110,7 @@ namespace FlatRedImGui
             
             // If this field is backed by a text buffer, we need to update the text buffer with the new value, otherwise
             // ImGui controls will display the wrong value.
-            if (updateTextBuffer && _propertyTextBuffers.TryGetValue(propertyName, out var textBuffer))
+            if (_propertyTextBuffers.TryGetValue(propertyName, out var textBuffer))
             {
                 var valueBytes = Encoding.ASCII.GetBytes((string) value);
                 Array.Clear(textBuffer, 0, textBuffer.Length);
@@ -143,6 +144,9 @@ namespace FlatRedImGui
             return buffer;
         }
 
+        /// <summary>
+        /// Updates a string property's value from the value being stored in an underlying text buffer
+        /// </summary>
         protected void UpdatePropertyFromTextBuffer(string propertyName)
         {
             if (!_propertyTextBuffers.TryGetValue(propertyName, out var buffer))
@@ -154,7 +158,57 @@ namespace FlatRedImGui
             }
 
             var stringValue = Encoding.ASCII.GetString(buffer);
-            Set(stringValue, propertyName, false);
+            Set(stringValue, propertyName);
+        }
+
+        /// <summary>
+        /// Creates a standard ImGui text editor for a property
+        /// </summary>
+        protected void InputText(string property, string label)
+        {
+            var buffer = GetTextBuffer(property);
+            ImGui.InputText(label, buffer, (uint) buffer.Length);
+            UpdatePropertyFromTextBuffer(property);
+        }
+
+        /// <summary>
+        /// Creates a standard ImGui integer editor for a property
+        /// </summary>
+        protected void InputInt(string property, string label)
+        {
+            var intVal = Get<int>(property);
+            ImGui.InputInt(label, ref intVal);
+            Set(intVal, property);
+        }
+
+        /// <summary>
+        /// Creates a standard ImGui double editor for a property
+        /// </summary>
+        protected void InputDouble(string property, string label)
+        {
+            var value = Get<double>(property);
+            ImGui.InputDouble(label, ref value);
+            Set(value, property);
+        }
+
+        /// <summary>
+        /// Creates a standard ImGui float editor for a property
+        /// </summary>
+        protected void InputFloat(string property, string label)
+        {
+            var value = Get<float>(property);
+            ImGui.InputFloat(label, ref value);
+            Set(value, property);
+        }
+
+        /// <summary>
+        /// Creates a standard ImGui checkbox control for a property
+        /// </summary>
+        protected void Checkbox(string property, string label)
+        {
+            var value = Get<bool>(property);
+            ImGui.Checkbox(label, ref value);
+            Set(value, property);
         }
 
         private class EventNotificationDisabler : IDisposable
