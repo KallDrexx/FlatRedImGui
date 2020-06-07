@@ -7,7 +7,7 @@ namespace TownRaiserImGui.ImGuiControls
     public class MainDebugWindow : ImGuiElement
     {
         private readonly List<GlobalUnitEditor> _globalUnitEditors = new List<GlobalUnitEditor>();
-        private Dictionary<GlobalUnitEditor, bool> _unitEditorExpandedMap = new Dictionary<GlobalUnitEditor, bool>();
+        private readonly Dictionary<GlobalUnitEditor, bool> _unitEditorExpandedMap = new Dictionary<GlobalUnitEditor, bool>();
         
         public int GoldCount
         {
@@ -32,6 +32,7 @@ namespace TownRaiserImGui.ImGuiControls
             get => Get<bool>();
             set => Set(value);
         }
+
         public void Add(GlobalUnitEditor globalUnitEditor)
         {
             _globalUnitEditors.Add(globalUnitEditor);
@@ -80,9 +81,12 @@ namespace TownRaiserImGui.ImGuiControls
                                 ImGui.SetNextItemOpen(true);
                             }
                             
-                            if (ImGui.TreeNode(globalUnitEditor.Id, globalUnitEditor.DisplayName))
+                            if (ImGui.TreeNode(globalUnitEditor.UnitId, globalUnitEditor.DisplayName))
                             {
                                 _unitEditorExpandedMap[globalUnitEditor] = true;
+                                
+                                // Unit editor should always be visible
+                                globalUnitEditor.IsVisible = true;
                                 globalUnitEditor.Render();
                                 
                                 ImGui.TreePop();

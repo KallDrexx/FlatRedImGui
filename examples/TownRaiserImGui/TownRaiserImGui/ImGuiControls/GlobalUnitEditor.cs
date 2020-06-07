@@ -1,6 +1,4 @@
-﻿using System;
-using System.Text;
-using FlatRedImGui;
+﻿using FlatRedImGui;
 using ImGuiNET;
 using TownRaiserImGui.DataTypes;
 
@@ -8,20 +6,13 @@ namespace TownRaiserImGui.ImGuiControls
 {
     public class GlobalUnitEditor : ImGuiElement
     {
-        private readonly byte[] _displayNameTextBuffer = new byte[100];
+        public string UnitId { get; private set; }
         
-        public string Id { get; private set; }
-        
+        [HasTextBuffer(100)]
         public string DisplayName
         {
             get => Get<string>();
-            set
-            {
-                var stringBytes = Encoding.ASCII.GetBytes(value); 
-                Array.Clear(_displayNameTextBuffer, 0, _displayNameTextBuffer.Length);
-                Array.Copy(stringBytes, _displayNameTextBuffer, stringBytes.Length);
-                Set(value);
-            }
+            set => Set(value);
         }
 
         public int Health
@@ -70,7 +61,7 @@ namespace TownRaiserImGui.ImGuiControls
         {
             using (DisablePropertyChangedNotifications())
             {
-                Id = unitData.Name;
+                UnitId = unitData.Name;
                 Health = unitData.Health;
                 DisplayName = unitData.NameDisplay;
                 GoldCost = unitData.GoldCost;
@@ -84,8 +75,9 @@ namespace TownRaiserImGui.ImGuiControls
         
         protected override void CustomRender()
         {
-            ImGui.InputText("Display Name", _displayNameTextBuffer, (uint) _displayNameTextBuffer.Length);
-            DisplayName = Encoding.ASCII.GetString(_displayNameTextBuffer);
+            var displayNameBuffer = GetTextBuffer(nameof(DisplayName));
+            ImGui.InputText("Display Name", displayNameBuffer, (uint) displayNameBuffer.Length);
+            UpdatePropertyFromTextBuffer(nameof(DisplayName));
 
             var health = Health;
             ImGui.InputInt("Health", ref health);
