@@ -135,6 +135,8 @@ namespace FlatRedImGui
             public float Y { get; set; }
             public float Z { get; } = 20;
             public IWindow Parent { get; set; }
+            
+            #pragma warning disable 67
             public event WindowEvent Click;
             public event WindowEvent ClickNoSlide;
             public event WindowEvent SlideOnClick;
@@ -144,6 +146,8 @@ namespace FlatRedImGui
             public event WindowEvent RollOff;
             public event WindowEvent RollOver;
             public event WindowEvent EnabledChange;
+            #pragma warning restore 67
+            
             IVisible IVisible.Parent { get; }
             public bool AbsoluteVisible { get; }
             public bool IgnoresParentVisibility { get; set; }

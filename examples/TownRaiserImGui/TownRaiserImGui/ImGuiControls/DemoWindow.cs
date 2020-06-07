@@ -1,6 +1,6 @@
 using FlatRedImGui;
 
-namespace TownRaiserImGui.ImGui
+namespace TownRaiserImGui.ImGuiControls
 {
     public class DemoWindow : ImGuiElement
     {

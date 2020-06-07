@@ -1,10 +1,12 @@
 
 using FlatRedBall;
+using FlatRedBall.Input;
 using FlatRedImGui;
 using Microsoft.Xna.Framework;
 
 using Microsoft.Xna.Framework.Graphics;
-using TownRaiserImGui.ImGui;
+using Microsoft.Xna.Framework.Input;
+using TownRaiserImGui.ImGuiControls;
 
 namespace TownRaiserImGui
 {
@@ -61,18 +63,21 @@ namespace TownRaiserImGui
             CustomCursorGraphicController.Initialize(this);
 
             _imGuiManager = new ImGuiManager(this);
-            _demoWindow = new DemoWindow { IsVisible = true };
+            _demoWindow = new DemoWindow { IsVisible = false };
             _imGuiManager.AddElement(_demoWindow);
 
             base.Initialize();
         }
 
-
         protected override void Update(GameTime gameTime)
         {
             FlatRedBallServices.Update(gameTime);
-
             FlatRedBall.Screens.ScreenManager.Activity();
+
+            if (InputManager.Keyboard.KeyReleased(Keys.F12))
+            {
+                _demoWindow.IsVisible = !_demoWindow.IsVisible;
+            }
 
             base.Update(gameTime);
         }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using System.Linq;
 
@@ -28,8 +29,10 @@ using TownRaiserImGui.Spawning;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using FlatRedBall.TileEntities;
+using FlatRedImGui;
 using Microsoft.Xna.Framework.Media;
 using TownRaiserImGui.GumRuntimes;
+using TownRaiserImGui.ImGuiControls;
 
 namespace TownRaiserImGui.Screens
 {
@@ -60,6 +63,8 @@ namespace TownRaiserImGui.Screens
     public partial class GameScreen
 	{
         #region Fields/Properties
+
+        private MainDebugWindow _debugWindow;
 
         private RaidSpawner raidSpawner;
 
@@ -131,6 +136,10 @@ namespace TownRaiserImGui.Screens
             InitializeSoundTracker();
 
             InitializeMusic();
+
+            _debugWindow = new MainDebugWindow {IsVisible = false};
+            _debugWindow.PropertyChanged += DebugWindowOnPropertyChanged;
+            ImGuiManager.Current.AddElement(_debugWindow);
         }
 
         private void InitializeMusic()
@@ -429,6 +438,8 @@ namespace TownRaiserImGui.Screens
             MusicActivity();
 
             UiActivity();
+            
+            UpdateDebugUi();
         }
 
         private void DetectEndGameActivity()
@@ -1525,13 +1536,45 @@ namespace TownRaiserImGui.Screens
             }
             SoundEffectTracker.TryPlayCameraRestrictedSoundEffect(soundEffect, soundEffectName, Camera.Main.Position, soundOrigin);
         }
+
+        private void UpdateDebugUi()
+        {
+            _debugWindow.GoldCount = Gold;
+            _debugWindow.LumberCount = Lumber;
+            _debugWindow.StoneCount = Stone;
+
+            if (InputManager.Keyboard.KeyReleased(Keys.F1))
+            {
+                _debugWindow.IsVisible = !_debugWindow.IsVisible;
+            }
+        }
 #endregion
 
         void CustomDestroy()
 		{
-            
+            ImGuiManager.Current.RemoveElement(_debugWindow);
+            _debugWindow.PropertyChanged -= DebugWindowOnPropertyChanged;
+        }
 
-		}
+        private void DebugWindowOnPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            switch (e.PropertyName)
+            {
+                case nameof(_debugWindow.GoldCount):
+                    Gold = _debugWindow.GoldCount;
+                    break;
+                
+                case nameof(_debugWindow.LumberCount):
+                    Lumber = _debugWindow.LumberCount;
+                    break;
+                
+                case nameof(_debugWindow.StoneCount):
+                    Stone = _debugWindow.StoneCount;
+                    break;
+            }
+
+            UpdateResourceDisplay();
+        }
         
         static void CustomLoadStaticContent(string contentManagerName)
         {
