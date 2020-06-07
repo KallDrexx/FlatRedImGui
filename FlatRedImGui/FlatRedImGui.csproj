@@ -18,7 +18,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\FlatRedBall\Engines\FlatRedBallXNA\FlatRedBall\FlatRedBallDesktopGL.csproj" />
+      <Reference Include="FlatRedBallDesktopGL, Version=2020.6.1.1095, Culture=neutral, PublicKeyToken=null">
+        <HintPath>..\Libraries\FlatRedBallDesktopGL.dll</HintPath>
+      </Reference>
     </ItemGroup>
 
 </Project>

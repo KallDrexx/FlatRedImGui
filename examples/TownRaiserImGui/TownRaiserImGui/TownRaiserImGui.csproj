@@ -67,6 +67,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libraries\DesktopGl\Debug\FlatRedBall.Forms.dll</HintPath>
     </Reference>
+    <Reference Include="FlatRedBallDesktopGL, Version=2020.6.1.1095, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\..\Libraries\FlatRedBallDesktopGL.dll</HintPath>
+    </Reference>
     <Reference Include="GumCoreXnaPc, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libraries\DesktopGl\Debug\GumCoreXnaPc.dll</HintPath>
@@ -1662,10 +1665,6 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\FlatRedBall\Engines\FlatRedBallXNA\FlatRedBall\FlatRedBallDesktopGL.csproj">
-      <Project>{10bda06c-7269-4cce-ae2a-d445f414520a}</Project>
-      <Name>FlatRedBallDesktopGL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\FlatRedImGui\FlatRedImGui.csproj">
       <Project>{cf26358e-0e25-4c40-a626-9c7753e7eefa}</Project>
       <Name>FlatRedImGui</Name>
