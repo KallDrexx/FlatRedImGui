@@ -8,6 +8,7 @@ using FlatRedBall;
 using FlatRedBall.Input;
 using FlatRedBall.Instructions;
 using FlatRedBall.AI.Pathfinding;
+using FlatRedBall.Audio;
 using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 
@@ -420,7 +421,7 @@ namespace TownRaiserImGui.Screens
 
             foreach (var unitKey in GlobalContent.UnitData.Keys)
             {
-                var editor = new GlobalUnitEditor(GlobalContent.UnitData[unitKey]) {IsVisible = true};
+                var editor = new GlobalUnitEditor(GlobalContent.UnitData[unitKey]);
 
                 _debugWindow.Add(editor);
 
@@ -1620,6 +1621,22 @@ namespace TownRaiserImGui.Screens
                 
                 case nameof(_debugWindow.StoneCount):
                     Stone = _debugWindow.StoneCount;
+                    break;
+                
+                case nameof(_debugWindow.MuteMusic):
+                    if (_debugWindow.MuteMusic)
+                    {
+                        AudioManager.AreSongsEnabled = false;
+                    }
+                    else
+                    {
+                        if (!AudioManager.AreSongsEnabled)
+                        {
+                            AudioManager.AreSongsEnabled = true;
+                            InitializeMusic();
+                        }
+                    }
+                    
                     break;
             }
 

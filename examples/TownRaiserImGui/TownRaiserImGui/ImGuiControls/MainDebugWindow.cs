@@ -27,6 +27,11 @@ namespace TownRaiserImGui.ImGuiControls
             set => Set(value);
         }
 
+        public bool MuteMusic
+        {
+            get => Get<bool>();
+            set => Set(value);
+        }
         public void Add(GlobalUnitEditor globalUnitEditor)
         {
             _globalUnitEditors.Add(globalUnitEditor);
@@ -40,6 +45,12 @@ namespace TownRaiserImGui.ImGuiControls
                 var framerate = ImGui.GetIO().Framerate;
                 ImGui.Text($"Frame time: {(1000f / framerate):F3} ms/frame");
                 ImGui.Text($"Framerate: {framerate:F1} FPS");
+                
+                ImGui.NewLine();
+
+                var muteMusic = MuteMusic;
+                ImGui.Checkbox("Mute Music", ref muteMusic);
+                MuteMusic = muteMusic;
                 
                 if (ImGui.CollapsingHeader("Available Resources"))
                 {
