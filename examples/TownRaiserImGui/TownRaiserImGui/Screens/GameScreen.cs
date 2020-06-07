@@ -137,9 +137,7 @@ namespace TownRaiserImGui.Screens
 
             InitializeMusic();
 
-            _debugWindow = new MainDebugWindow {IsVisible = false};
-            _debugWindow.PropertyChanged += DebugWindowOnPropertyChanged;
-            ImGuiManager.Current.AddElement(_debugWindow);
+            InitializeDebugUI();
         }
 
         private void InitializeMusic()
@@ -411,6 +409,58 @@ namespace TownRaiserImGui.Screens
                         }
                     }
                 }
+            }
+        }
+
+        private void InitializeDebugUI()
+        {
+            _debugWindow = new MainDebugWindow {IsVisible = false};
+            _debugWindow.PropertyChanged += DebugWindowOnPropertyChanged;
+            ImGuiManager.Current.AddElement(_debugWindow);
+
+            foreach (var unitKey in GlobalContent.UnitData.Keys)
+            {
+                var editor = new GlobalUnitEditor(GlobalContent.UnitData[unitKey]) {IsVisible = true};
+
+                _debugWindow.Add(editor);
+
+                editor.PropertyChanged += (sender, args) =>
+                {
+                    switch (args.PropertyName)
+                    {
+                        case nameof(GlobalUnitEditor.Health):
+                            GlobalContent.UnitData[unitKey].Health = editor.Health;
+                            break;
+
+                        case nameof(GlobalUnitEditor.Capacity):
+                            GlobalContent.UnitData[unitKey].Capacity = editor.Capacity;
+                            break;
+
+                        case nameof(GlobalUnitEditor.AttackDamage):
+                            GlobalContent.UnitData[unitKey].AttackDamage = editor.AttackDamage;
+                            break;
+
+                        case nameof(GlobalUnitEditor.AttackRange):
+                            GlobalContent.UnitData[unitKey].AttackRange = editor.AttackRange;
+                            break;
+
+                        case nameof(GlobalUnitEditor.GoldCost):
+                            GlobalContent.UnitData[unitKey].GoldCost = editor.GoldCost;
+                            break;
+
+                        case nameof(GlobalUnitEditor.MovementSpeed):
+                            GlobalContent.UnitData[unitKey].MovementSpeed = editor.MovementSpeed;
+                            break;
+
+                        case nameof(GlobalUnitEditor.ResourceHarvestAmount):
+                            GlobalContent.UnitData[unitKey].ResourceHarvestAmount = editor.ResourceHarvestAmount;
+                            break;
+
+                        case nameof(GlobalUnitEditor.DisplayName):
+                            GlobalContent.UnitData[unitKey].NameDisplay = editor.DisplayName;
+                            break;
+                    }
+                };
             }
         }
         

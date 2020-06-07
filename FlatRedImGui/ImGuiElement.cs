@@ -11,10 +11,10 @@ namespace FlatRedImGui
     public abstract class ImGuiElement: INotifyPropertyChanged
     {
         private readonly Dictionary<string, object> _notifyPropertyChangedObjects = new Dictionary<string, object>();
-        
+        private bool _disablePropertyNotificationEvents;
+
         public event PropertyChangedEventHandler PropertyChanged;
         public bool IsVisible { get; set; }
-        public bool HasFocus { get; set; }
 
         public void Render()
         {
@@ -29,6 +29,16 @@ namespace FlatRedImGui
         /// has `IsVisible` set to `true`.
         /// </summary>
         protected abstract void CustomRender();
+
+        /// <summary>
+        /// Temporarily disables property changed events from being dispatched until the returned IDisposable
+        /// is disposed.
+        /// </summary>
+        /// <returns></returns>
+        protected IDisposable DisablePropertyChangedNotifications()
+        {
+            return new EventNotificationDisabler(this);
+        }
 
         protected T Get<T>([CallerMemberName] string propertyName = null)
         {
@@ -49,13 +59,34 @@ namespace FlatRedImGui
                 throw new ArgumentNullException(nameof(propertyName));
             }
 
-            if (_notifyPropertyChangedObjects.TryGetValue(propertyName, out var existingValue) && existingValue == value)
+            var hasExistingValue = _notifyPropertyChangedObjects.TryGetValue(propertyName, out var existingValue);
+            if (hasExistingValue && existingValue == value)
             {
                 return;
             }
 
             _notifyPropertyChangedObjects[propertyName] = value;
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+            if (!_disablePropertyNotificationEvents)
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+        private class EventNotificationDisabler : IDisposable
+        {
+            private readonly ImGuiElement _element;
+
+            public EventNotificationDisabler(ImGuiElement element)
+            {
+                _element = element;
+                _element._disablePropertyNotificationEvents = true;
+            }
+            
+            public void Dispose()
+            {
+                _element._disablePropertyNotificationEvents = false;
+            }
         }
     }
 }

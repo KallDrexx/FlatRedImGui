@@ -1600,6 +1600,7 @@
     </Compile>
     <Compile Include="ImGuiControls\DemoWindow.cs" />
     <Compile Include="ImGuiControls\MainDebugWindow.cs" />
+    <Compile Include="ImGuiControls\GlobalUnitEditor.cs" />
     <Compile Include="Interfaces\ICommonEntityData.cs" />
     <Compile Include="Interfaces\IUpdatesStatus.cs" />
     <Compile Include="Performance\IEntityFactory.Generated.cs" />
