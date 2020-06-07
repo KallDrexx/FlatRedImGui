@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace FlatRedImGui
 {
     /// <summary>
@@ -7,24 +5,20 @@ namespace FlatRedImGui
     /// </summary>
     public abstract class ImGuiElement
     {
-        protected List<ImGuiElement> Children { get; } = new List<ImGuiElement>();
         public bool IsVisible { get; set; }
+        public bool HasFocus { get; set; }
 
         public void Render()
         {
             if (IsVisible)
             {
                 CustomRender();
-
-                foreach (var child in Children)
-                {
-                    child.Render();
-                }
             }
         }
-
+        
         /// <summary>
-        /// 
+        /// Custom logic for each item for how the item should be rendered.  This will only be called if the element
+        /// has `IsVisible` set to `true`.
         /// </summary>
         protected abstract void CustomRender();
     }

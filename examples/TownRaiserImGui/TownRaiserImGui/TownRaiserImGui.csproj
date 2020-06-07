@@ -1598,6 +1598,7 @@
     <Compile Include="GumRuntimes\XButtonRuntime.Generated.cs">
       <DependentUpon>XButtonRuntime.cs</DependentUpon>
     </Compile>
+    <Compile Include="ImGui\DemoWindow.cs" />
     <Compile Include="Interfaces\ICommonEntityData.cs" />
     <Compile Include="Interfaces\IUpdatesStatus.cs" />
     <Compile Include="Performance\IEntityFactory.Generated.cs" />

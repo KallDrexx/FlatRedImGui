@@ -17,7 +17,7 @@ using FlatRedBall.Math.Splines;
 using Cursor = FlatRedBall.Gui.Cursor;
 using GuiManager = FlatRedBall.Gui.GuiManager;
 using FlatRedBall.Localization;
-
+using FlatRedImGui;
 using Keys = Microsoft.Xna.Framework.Input.Keys;
 using Vector3 = Microsoft.Xna.Framework.Vector3;
 using Texture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
@@ -37,12 +37,16 @@ namespace TownRaiserImGui.Screens
 		{
             if(!hasRespondedToInput)
             {
-                if(GuiManager.Cursor.PrimaryClick || InputManager.Keyboard.AnyKeyPushed())
-                {
-                    hasRespondedToInput = true;
-                    this.InstructionText.Text = "Loading...";
-                    // give it 1 so the loading text displays:
-                }
+	            if (!ImGuiManager.Current.AcceptingMouseInput && !ImGuiManager.Current.AcceptingKeyboardInput)
+	            {
+		            if(GuiManager.Cursor.PrimaryClick || InputManager.Keyboard.AnyKeyPushed())
+		            {
+			            hasRespondedToInput = true;
+			            this.InstructionText.Text = "Loading...";
+			            // give it 1 so the loading text displays:
+		            }
+	            }
+		            
 
             }
             else

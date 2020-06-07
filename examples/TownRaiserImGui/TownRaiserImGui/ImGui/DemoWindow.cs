@@ -1,12 +1,12 @@
-using ImGuiNET;
+using FlatRedImGui;
 
-namespace FlatRedImGui.ExampleElements
+namespace TownRaiserImGui.ImGui
 {
     public class DemoWindow : ImGuiElement
     {
         protected override void CustomRender()
         {
-            ImGui.ShowDemoWindow();
+            ImGuiNET.ImGui.ShowDemoWindow();
         }
     }
 }
