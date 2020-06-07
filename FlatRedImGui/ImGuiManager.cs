@@ -12,15 +12,16 @@ namespace FlatRedImGui
     {
         private readonly ImGuiRenderer _renderer;
         private readonly List<ImGuiElement> _elements = new List<ImGuiElement>();
+        private readonly Game _game;
 
         public float X { get; set; }
         public float Y { get; set; }
         public float Z { get; set; } = 20;
         public bool UpdateEveryFrame { get; } = false;
-        public Texture2D FontAtlas => _renderer.FontTexture;
 
         public ImGuiManager(Game game)
         {
+            _game = game;
             _renderer = new ImGuiRenderer(game);
             _renderer.RebuildFontAtlas();
             
@@ -40,17 +41,18 @@ namespace FlatRedImGui
         
         public void Draw(Camera camera)
         {
-            var gameTime = TimeManager.CurrentTime;
-            _renderer.BeforeLayout(gameTime);
+            var oldSamplerState = _game.GraphicsDevice.SamplerStates[0];
+            _game.GraphicsDevice.SamplerStates[0] = new SamplerState();
+            
+            _renderer.BeforeLayout(TimeManager.LastUpdateGameTime);
+            
             foreach (var element in _elements)
             {
                 element.Render();
             }
+            
             _renderer.AfterLayout();
-        }
-
-        public void DrawAtlasTexture()
-        {
+            _game.GraphicsDevice.SamplerStates[0] = oldSamplerState;
         }
 
         public void Update()

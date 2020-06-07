@@ -41,12 +41,10 @@ namespace FlatRedImGui
 
         private List<int> _keys = new List<int>();
 
-        public Texture2D FontTexture { get; private set; }
-
         public ImGuiRenderer(Game game)
         {
-            var context = ImGuiNET.ImGui.CreateContext();
-            ImGuiNET.ImGui.SetCurrentContext(context);
+            var context = ImGui.CreateContext();
+            ImGui.SetCurrentContext(context);
 
             _game = game ?? throw new ArgumentNullException(nameof(game));
             _graphicsDevice = game.GraphicsDevice;
@@ -74,7 +72,7 @@ namespace FlatRedImGui
         public virtual unsafe void RebuildFontAtlas()
         {
             // Get font texture from ImGui
-            var io = ImGuiNET.ImGui.GetIO();
+            var io = ImGui.GetIO();
             io.Fonts.GetTexDataAsRGBA32(out byte* pixelData, out int width, out int height, out int bytesPerPixel);
 
             // Copy the data to a managed array
@@ -84,8 +82,6 @@ namespace FlatRedImGui
             // Create and register the texture as an XNA texture
             var tex2d = new Texture2D(_graphicsDevice, width, height, false, SurfaceFormat.Color);
             tex2d.SetData(pixels);
-
-            FontTexture = tex2d;
 
             // Should a texture already have been build previously, unbind it first so it can be deallocated
             if (_fontTextureId.HasValue) UnbindTexture(_fontTextureId.Value);
@@ -99,7 +95,7 @@ namespace FlatRedImGui
         }
 
         /// <summary>
-        /// Creates a pointer to a texture, which can be passed through ImGui calls such as <see cref="MediaTypeNames.Image" />. That pointer is then used by ImGui to let us know what texture to draw
+        /// Creates a pointer to a texture, which can be passed through ImGui calls such as <see cref="ImGui.Image" />. That pointer is then used by ImGui to let us know what texture to draw
         /// </summary>
         public virtual IntPtr BindTexture(Texture2D texture)
         {
@@ -121,13 +117,13 @@ namespace FlatRedImGui
         /// <summary>
         /// Sets up ImGui for a new frame, should be called at frame start
         /// </summary>
-        public virtual void BeforeLayout(double gameTime)
+        public virtual void BeforeLayout(GameTime gameTime)
         {
-            ImGuiNET.ImGui.GetIO().DeltaTime = (float)gameTime;
+            ImGui.GetIO().DeltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             UpdateInput();
 
-            ImGuiNET.ImGui.NewFrame();
+            ImGui.NewFrame();
         }
 
         /// <summary>
@@ -135,9 +131,9 @@ namespace FlatRedImGui
         /// </summary>
         public virtual void AfterLayout()
         {
-            ImGuiNET.ImGui.Render();
+            ImGui.Render();
 
-            unsafe { RenderDrawData(ImGuiNET.ImGui.GetDrawData()); }
+            unsafe { RenderDrawData(ImGui.GetDrawData()); }
         }
 
         #endregion ImGuiRenderer
@@ -149,7 +145,7 @@ namespace FlatRedImGui
         /// </summary>
         protected virtual void SetupInput()
         {
-            var io = ImGuiNET.ImGui.GetIO();
+            var io = ImGui.GetIO();
 
             _keys.Add(io.KeyMap[(int)ImGuiKey.Tab] = (int)Keys.Tab);
             _keys.Add(io.KeyMap[(int)ImGuiKey.LeftArrow] = (int)Keys.Left);
@@ -189,7 +185,7 @@ namespace FlatRedImGui
             //};
             ///////////////////////////////////////////
 
-            ImGuiNET.ImGui.GetIO().Fonts.AddFontDefault();
+            ImGui.GetIO().Fonts.AddFontDefault();
         }
 
         /// <summary>
@@ -199,7 +195,7 @@ namespace FlatRedImGui
         {
             _effect = _effect ?? new BasicEffect(_graphicsDevice);
 
-            var io = ImGuiNET.ImGui.GetIO();
+            var io = ImGui.GetIO();
 
             // MonoGame-specific //////////////////////
             var offset = .5f;
@@ -224,7 +220,7 @@ namespace FlatRedImGui
         /// </summary>
         protected virtual void UpdateInput()
         {
-            var io = ImGuiNET.ImGui.GetIO();
+            var io = ImGui.GetIO();
 
             var mouse = Mouse.GetState();
             var keyboard = Keyboard.GetState();
@@ -272,7 +268,7 @@ namespace FlatRedImGui
             _graphicsDevice.DepthStencilState = DepthStencilState.DepthRead;
 
             // Handle cases of screen coordinates != from framebuffer coordinates (e.g. retina displays)
-            drawData.ScaleClipRects(ImGuiNET.ImGui.GetIO().DisplayFramebufferScale);
+            drawData.ScaleClipRects(ImGui.GetIO().DisplayFramebufferScale);
 
             // Setup projection
             _graphicsDevice.Viewport = new Viewport(0, 0, _graphicsDevice.PresentationParameters.BackBufferWidth, _graphicsDevice.PresentationParameters.BackBufferHeight);
