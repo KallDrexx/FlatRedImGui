@@ -46,7 +46,7 @@
     <DefineConstants>TRACE;DEBUG;MONOGAME; DESKTOP_GL; XNA4; FRB_XNA</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
+    <LangVersion>latest</LangVersion>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
@@ -1600,6 +1600,8 @@
     </Compile>
     <Compile Include="ImGuiControls\DemoWindow.cs" />
     <Compile Include="ImGuiControls\GlobalBuildingEditor.cs" />
+    <Compile Include="ImGuiControls\SingleBuildingEditor.cs" />
+    <Compile Include="ImGuiControls\SingleUnitEditor.cs" />
     <Compile Include="ImGuiControls\MainDebugWindow.cs" />
     <Compile Include="ImGuiControls\GlobalUnitEditor.cs" />
     <Compile Include="Interfaces\ICommonEntityData.cs" />

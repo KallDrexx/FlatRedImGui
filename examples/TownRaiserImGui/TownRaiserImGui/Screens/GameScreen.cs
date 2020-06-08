@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Text;
 using System.Linq;
 
 using FlatRedBall;
@@ -9,25 +8,16 @@ using FlatRedBall.Input;
 using FlatRedBall.Instructions;
 using FlatRedBall.AI.Pathfinding;
 using FlatRedBall.Audio;
-using FlatRedBall.Graphics.Animation;
-using FlatRedBall.Graphics.Particle;
-
 using FlatRedBall.Math.Geometry;
-using FlatRedBall.Math.Splines;
-
 using Cursor = FlatRedBall.Gui.Cursor;
 using GuiManager = FlatRedBall.Gui.GuiManager;
-using FlatRedBall.Localization;
-
 using Keys = Microsoft.Xna.Framework.Input.Keys;
 using Vector3 = Microsoft.Xna.Framework.Vector3;
-using Texture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
 using FlatRedBall.Math;
 using FlatRedBall.TileCollisions;
 using TownRaiserImGui.DataTypes;
 using TownRaiserImGui.Entities;
 using TownRaiserImGui.Spawning;
-using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using FlatRedBall.TileEntities;
 using FlatRedImGui;
@@ -64,8 +54,6 @@ namespace TownRaiserImGui.Screens
     public partial class GameScreen
 	{
         #region Fields/Properties
-
-        private MainDebugWindow _debugWindow;
 
         private RaidSpawner raidSpawner;
 
@@ -410,104 +398,6 @@ namespace TownRaiserImGui.Screens
                         }
                     }
                 }
-            }
-        }
-
-        private void InitializeDebugUi()
-        {
-            _debugWindow = new MainDebugWindow {IsVisible = false};
-            _debugWindow.PropertyChanged += DebugWindowOnPropertyChanged;
-            ImGuiManager.Current.AddElement(_debugWindow);
-
-            SetupGlobalUnitEditors();
-            SetupGlobalBuildingEditors();
-        }
-
-        private void SetupGlobalUnitEditors()
-        {
-            foreach (var unitKey in GlobalContent.UnitData.Keys)
-            {
-                var editor = new GlobalUnitEditor(GlobalContent.UnitData[unitKey]);
-
-                _debugWindow.Add(editor);
-
-                editor.PropertyChanged += (sender, args) =>
-                {
-                    switch (args.PropertyName)
-                    {
-                        case nameof(GlobalUnitEditor.Health):
-                            GlobalContent.UnitData[unitKey].Health = editor.Health;
-                            break;
-
-                        case nameof(GlobalUnitEditor.Capacity):
-                            GlobalContent.UnitData[unitKey].Capacity = editor.Capacity;
-                            break;
-
-                        case nameof(GlobalUnitEditor.AttackDamage):
-                            GlobalContent.UnitData[unitKey].AttackDamage = editor.AttackDamage;
-                            break;
-
-                        case nameof(GlobalUnitEditor.AttackRange):
-                            GlobalContent.UnitData[unitKey].AttackRange = editor.AttackRange;
-                            break;
-
-                        case nameof(GlobalUnitEditor.GoldCost):
-                            GlobalContent.UnitData[unitKey].GoldCost = editor.GoldCost;
-                            break;
-
-                        case nameof(GlobalUnitEditor.MovementSpeed):
-                            GlobalContent.UnitData[unitKey].MovementSpeed = editor.MovementSpeed;
-                            break;
-
-                        case nameof(GlobalUnitEditor.ResourceHarvestAmount):
-                            GlobalContent.UnitData[unitKey].ResourceHarvestAmount = editor.ResourceHarvestAmount;
-                            break;
-
-                        case nameof(GlobalUnitEditor.DisplayName):
-                            GlobalContent.UnitData[unitKey].NameDisplay = editor.DisplayName;
-                            break;
-                    }
-                };
-            }
-        }
-
-        private void SetupGlobalBuildingEditors()
-        {
-            foreach (var buildingKey in GlobalContent.BuildingData.Keys)
-            {
-                var buildingInfo = GlobalContent.BuildingData[buildingKey];
-                var editor = new GlobalBuildingEditor(buildingInfo);
-                _debugWindow.Add(editor);
-
-                editor.PropertyChanged += (sender, args) =>
-                {
-                    switch (args.PropertyName)
-                    {
-                        case nameof(GlobalBuildingEditor.DisplayName):
-                            buildingInfo.NameDisplay = editor.DisplayName;
-                            break;
-                        
-                        case nameof(GlobalBuildingEditor.Capacity):
-                            buildingInfo.Capacity = editor.Capacity;
-                            break;
-                        
-                        case nameof(GlobalBuildingEditor.Health):
-                            buildingInfo.Health = editor.Health;
-                            break;
-                        
-                        case nameof(GlobalBuildingEditor.BuildTime):
-                            buildingInfo.BuildTime = editor.BuildTime;
-                            break;
-                        
-                        case nameof(GlobalBuildingEditor.LumberCost):
-                            buildingInfo.LumberCost = editor.LumberCost;
-                            break;
-                        
-                        case nameof(GlobalBuildingEditor.StoneCost):
-                            buildingInfo.StoneCost = editor.StoneCost;
-                            break;
-                    }
-                };
             }
         }
 
@@ -1239,8 +1129,6 @@ namespace TownRaiserImGui.Screens
             selectedBuilding = null;
             topSelectedUnit = null;
 
-            
-
             var cursor = GuiManager.Cursor;
 
             selectedBuilding = BuildingList.FirstOrDefault(item => item.IsCursorOverSprite(cursor));
@@ -1290,6 +1178,8 @@ namespace TownRaiserImGui.Screens
                 Unit.TryPlaySelectSound(topSelectedUnit);
                 this.ActionToolbarInstance.SetViewFromEntity(null);
             }
+
+            UpdatedDebugSelectionEditorUi();
         }
 
         private UnitData GetTopSelectedUnit()
@@ -1633,18 +1523,7 @@ namespace TownRaiserImGui.Screens
             }
             SoundEffectTracker.TryPlayCameraRestrictedSoundEffect(soundEffect, soundEffectName, Camera.Main.Position, soundOrigin);
         }
-
-        private void UpdateDebugUi()
-        {
-            _debugWindow.GoldCount = Gold;
-            _debugWindow.LumberCount = Lumber;
-            _debugWindow.StoneCount = Stone;
-
-            if (InputManager.Keyboard.KeyReleased(Keys.F1))
-            {
-                _debugWindow.IsVisible = !_debugWindow.IsVisible;
-            }
-        }
+        
 #endregion
 
         void CustomDestroy()
@@ -1694,6 +1573,164 @@ namespace TownRaiserImGui.Screens
 
 
         }
+
+        #region Debug UI
+
+        private MainDebugWindow _debugWindow;
+        private SingleUnitEditor _singleUnitEditor;
+        private SingleBuildingEditor _singleBuildingEditor;
+        
+        private void InitializeDebugUi()
+        {
+            _debugWindow = new MainDebugWindow {IsVisible = false};
+            _debugWindow.PropertyChanged += DebugWindowOnPropertyChanged;
+            ImGuiManager.Current.AddElement(_debugWindow);
+
+            SetupGlobalUnitEditors();
+            SetupGlobalBuildingEditors();
+        }
+
+        private void SetupGlobalUnitEditors()
+        {
+            foreach (var unitKey in GlobalContent.UnitData.Keys)
+            {
+                var editor = new GlobalUnitEditor(GlobalContent.UnitData[unitKey]);
+
+                _debugWindow.Add(editor);
+
+                editor.PropertyChanged += (sender, args) =>
+                {
+                    switch (args.PropertyName)
+                    {
+                        case nameof(GlobalUnitEditor.Health):
+                            GlobalContent.UnitData[unitKey].Health = editor.Health;
+                            break;
+
+                        case nameof(GlobalUnitEditor.Capacity):
+                            GlobalContent.UnitData[unitKey].Capacity = editor.Capacity;
+                            break;
+
+                        case nameof(GlobalUnitEditor.AttackDamage):
+                            GlobalContent.UnitData[unitKey].AttackDamage = editor.AttackDamage;
+                            break;
+
+                        case nameof(GlobalUnitEditor.AttackRange):
+                            GlobalContent.UnitData[unitKey].AttackRange = editor.AttackRange;
+                            break;
+
+                        case nameof(GlobalUnitEditor.GoldCost):
+                            GlobalContent.UnitData[unitKey].GoldCost = editor.GoldCost;
+                            break;
+
+                        case nameof(GlobalUnitEditor.MovementSpeed):
+                            GlobalContent.UnitData[unitKey].MovementSpeed = editor.MovementSpeed;
+                            break;
+
+                        case nameof(GlobalUnitEditor.ResourceHarvestAmount):
+                            GlobalContent.UnitData[unitKey].ResourceHarvestAmount = editor.ResourceHarvestAmount;
+                            break;
+
+                        case nameof(GlobalUnitEditor.DisplayName):
+                            GlobalContent.UnitData[unitKey].NameDisplay = editor.DisplayName;
+                            break;
+                    }
+                };
+            }
+        }
+
+        private void SetupGlobalBuildingEditors()
+        {
+            foreach (var buildingKey in GlobalContent.BuildingData.Keys)
+            {
+                var buildingInfo = GlobalContent.BuildingData[buildingKey];
+                var editor = new GlobalBuildingEditor(buildingInfo);
+                _debugWindow.Add(editor);
+
+                editor.PropertyChanged += (sender, args) =>
+                {
+                    switch (args.PropertyName)
+                    {
+                        case nameof(GlobalBuildingEditor.DisplayName):
+                            buildingInfo.NameDisplay = editor.DisplayName;
+                            break;
+                        
+                        case nameof(GlobalBuildingEditor.Capacity):
+                            buildingInfo.Capacity = editor.Capacity;
+                            break;
+                        
+                        case nameof(GlobalBuildingEditor.Health):
+                            buildingInfo.Health = editor.Health;
+                            break;
+                        
+                        case nameof(GlobalBuildingEditor.BuildTime):
+                            buildingInfo.BuildTime = editor.BuildTime;
+                            break;
+                        
+                        case nameof(GlobalBuildingEditor.LumberCost):
+                            buildingInfo.LumberCost = editor.LumberCost;
+                            break;
+                        
+                        case nameof(GlobalBuildingEditor.StoneCost):
+                            buildingInfo.StoneCost = editor.StoneCost;
+                            break;
+                    }
+                };
+            }
+        }
+
+        private void UpdateDebugUi()
+        {
+            _debugWindow.GoldCount = Gold;
+            _debugWindow.LumberCount = Lumber;
+            _debugWindow.StoneCount = Stone;
+
+            if (InputManager.Keyboard.KeyReleased(Keys.F1))
+            {
+                _debugWindow.IsVisible = !_debugWindow.IsVisible;
+
+                if (_singleUnitEditor != null)
+                {
+                    _singleUnitEditor.IsVisible = !_singleUnitEditor.IsVisible;
+                }
+            }
+        }
+
+        private void UpdatedDebugSelectionEditorUi()
+        {
+            if (_singleUnitEditor != null)
+            {
+                ImGuiManager.Current.RemoveElement(_singleUnitEditor);
+                _singleUnitEditor = null;
+            }
+
+            if (_singleBuildingEditor != null)
+            {
+                ImGuiManager.Current.RemoveElement(_singleBuildingEditor);
+                _singleBuildingEditor = null;
+            }
+
+            if (selectedUnits.Count == 1)
+            {
+                _singleUnitEditor = new SingleUnitEditor(selectedUnits[0])
+                {
+                    IsVisible = _debugWindow.IsVisible,
+                };
+                
+                ImGuiManager.Current.AddElement(_singleUnitEditor);
+            }
+
+            if (selectedBuilding != null)
+            {
+                _singleBuildingEditor = new SingleBuildingEditor(selectedBuilding)
+                {
+                    IsVisible = _debugWindow.IsVisible,
+                };
+                
+                ImGuiManager.Current.AddElement(_singleBuildingEditor);
+            }
+        }
+        
+        #endregion
 
 	}
 }

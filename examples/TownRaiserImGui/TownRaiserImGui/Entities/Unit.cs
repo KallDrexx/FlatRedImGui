@@ -515,7 +515,7 @@ namespace TownRaiserImGui.Entities
             }
         }
 
-        private void PerformDeath()
+        public void PerformDeath()
         {
             TryPlayDeathSound(this);
             CombatTracker.RemoveUnit(this);
